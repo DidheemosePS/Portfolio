@@ -2,21 +2,23 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen flex justify-evenly items-center">
-      <div className="flex flex-col gap-3">
-        <p className="text-lg">Frontend Developer</p>
-        <p className="text-3xl font-bold">Hi, I'm Didheemose</p>
-        <p className="text-3xl font-bold">From India</p>
+    <div className="w-full h-[calc(100vh-4rem)] flex justify-between items-center pl-32">
+      <div className="w-2/4 flex flex-col gap-7">
+        <p className="text-4xl font-medium">Frontend Developer</p>
+        <div className="text-6xl font-bold">
+          Hi, I'm
+          <p className="inline text-6xl font-bold text-red-#ff044c">
+            {" "}
+            Didheemose
+          </p>
+        </div>
+        <p className="text-6xl font-bold">From India</p>
       </div>
-      <div className="w-1/2 h-full flex items-center bg-white">
-        <Image
-          src="/didhee.jpeg"
-          alt="Didheemose"
-          width="100"
-          height="100"
-          className=""
-        />
-      </div>
+      <img
+        src="./userImage.png"
+        alt="Image"
+        className="w-2/4 h-full self-end pt-9"
+      />
     </div>
   );
 }

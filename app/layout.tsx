@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${inter.className} max-w-screen-2xl	w-full m-auto pl-5 bg-black text-white`}
+        className={`${inter.className} max-w-screen-2xl	w-full text-slate-900 dark:text-white bg-white dark:bg-black box-border`}
       >
         <Navigation />
         {children}
