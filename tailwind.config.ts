@@ -15,6 +15,15 @@ const config: Config = {
       },
       colors: {
         "red-#ff044c": "#ff044c",
+        hibiscus: "#B43757",
+      },
+      width: {
+        "2sm-imageWidth-20rem": "20rem",
+        "lg-imageWidth-30rem": "30rem",
+        "xl-imageWidth-35rem": "35rem",
+      },
+      height: {
+        "imageHeight-40rem": "40rem",
       },
     },
   },
