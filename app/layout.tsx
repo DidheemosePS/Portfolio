@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-black box-border pl-5 pr-5`}
+        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-black box-border`}
       >
         <ReduxProvider>
           <Navigation />

@@ -3,7 +3,7 @@ import NavigationButtons from "./navigationButtons";
 
 export default function Navigation() {
   return (
-    <div className="w-full h-12 flex justify-between items-end sm:pl-10 lg:pl-14 pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40">
+    <div className="w-full h-12 flex justify-between items-end pl-5 pr-5 sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40">
       <p className="first-letter:text-red-#ff044c text-2xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
         Didheemose.
       </p>

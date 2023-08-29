@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full h-[calc(100vh-3rem)] relative overflow-hidden sm:pl-10 lg:pl-14 xl:pl-28 2xl:pl-40">
+    <div className="w-full h-[calc(100vh-3rem)] relative pl-5 pr-5 overflow-hidden sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40">
       <div className="w-fit h-full flex flex-col justify-center">
         <p className="text-xl font-medium lg:text-4xl">Frontend Developer</p>
         <div>
