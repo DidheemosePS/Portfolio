@@ -12,20 +12,23 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="w-full h-[calc(100vh-4rem)] flex justify-between items-center gap-14 pl-32 pr-32 bg-white">
-      <div className="w-4/5 h-3/4 rounded-lg">
+    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 pt-5 pb-5 lg:flex-row">
+      <div className="w-full max-w-xs h-80 rounded-lg bg-box-color sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
         <Image
-          src="./didhee.jpeg"
+          src="./didhee.png"
           alt="Image"
           width={100}
           height={100}
           quality={100}
-          loading="lazy"
-          className="w-full h-full object-cover rounded-lg"
+          // loading="lazy"
+          priority
+          className="w-full h-full object-contain rounded-lg"
         />
       </div>
-      {/* <div className="h-3/4 flex flex-col gap-4 pt-4 pb-4">
-        <p className="text-6xl font-bold">About Me</p>
+      <div className="flex flex-col gap-4 lg:h-25 lg:pt-4">
+        <p className="text-center text-2xl font-bold md:text-3xl lg:text-start lg:text-4xl">
+          About Me
+        </p>
         <p className="text-justify text-gray-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
           ducimus quod necessitatibus beatae deleniti, nobis ipsum perferendis
@@ -37,7 +40,7 @@ export default function About() {
           <Experience />
           <Education />
         </AboutButtons>
-      </div> */}
+      </div>
     </div>
   );
 }

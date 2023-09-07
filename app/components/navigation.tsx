@@ -1,10 +1,9 @@
-import Image from "next/image";
-import NavigationButtons from "./navigationButtons";
+import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <div className="w-full h-12 flex justify-between items-end pl-5 pr-5 sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40">
-      <p className="first-letter:text-red-#ff044c text-2xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
+    <div className="w-full h-12 flex justify-between items-end">
+      <p className="first-letter:text-red-#ff044c text-2xl font-bold md:text-3xl lg:text-4xl">
         Didheemose.
       </p>
       <svg
@@ -23,7 +22,13 @@ export default function Navigation() {
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
-      <NavigationButtons />
+      <div className="hidden lg:flex gap-12">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/services">Services</Link>
+        <Link href="/portfolio">Portfolio</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
     </div>
   );
 }

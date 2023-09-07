@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full h-[calc(100vh-3rem)] relative pl-5 pr-5 overflow-hidden sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40">
+    <div className="w-full h-[calc(100vh-3rem)] relative overflow-hidden">
       <div className="w-fit h-full flex flex-col justify-center">
         <p className="text-xl font-medium lg:text-4xl">Frontend Developer</p>
         <div>
@@ -14,14 +14,15 @@ export default function Home() {
         </div>
         <p className="text-4xl font-bold lg:text-5xl">From India</p>
       </div>
-      <div className="w-2sm-imageWidth-20rem h-imageHeight-40rem absolute bottom-0 -right-32 -z-50 sm:right-0 lg:w-lg-imageWidth-30rem xl:w-xl-imageWidth-35rem">
+      <div className="w-full max-w-30 h-full max-h-40 absolute bottom-0 -right-32 -z-50 pt-5 sm:-right-32 lg:right-0 xl:max-w-xl-imageWidth-35rem">
         <Image
           src="./userImage.png"
           alt="Image"
           width={100}
           height={100}
           quality={100}
-          loading="lazy"
+          // loading="lazy"
+          priority
           className="w-full h-full object-fill"
         />
       </div>

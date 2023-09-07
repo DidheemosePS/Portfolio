@@ -1,6 +1,6 @@
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-4 mt-3">
+    <div className="flex flex-col gap-4">
       <div>
         <p className="text-hibiscus">2023 - Current</p>
         <p className="text-gray-300">

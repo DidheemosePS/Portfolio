@@ -15,15 +15,21 @@ const config: Config = {
       },
       colors: {
         "red-#ff044c": "#ff044c",
-        hibiscus: "#B43757",
+        "hibiscus": "#B43757",
+        "box-color":"#262626",
+        "dark-theme":"#080808"
       },
-      width: {
-        "2sm-imageWidth-20rem": "20rem",
-        "lg-imageWidth-30rem": "30rem",
-        "xl-imageWidth-35rem": "35rem",
+      maxWidth: {
+        "30": "30rem",
+        "20": "20rem",
+        "17": "17rem",
       },
       height: {
-        "imageHeight-40rem": "40rem",
+        "25": "25rem",
+        "30": "30rem",
+      },
+      maxHeight: {
+        "40": "40rem",
       },
     },
   },
