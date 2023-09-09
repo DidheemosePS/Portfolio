@@ -23,7 +23,7 @@ export default function Home() {
           quality={100}
           // loading="lazy"
           priority
-          className="w-full h-full object-fill"
+          className="w-full h-full"
         />
       </div>
     </div>
