@@ -12,7 +12,7 @@ export default function NavigationSlider() {
 
   return (
     <div
-      className={`${isOpen} w-full h-fit absolute top-0 right-0 z-10 transition duration-500 ease-in-out origin-top pb-12 bg-box-color lg:hidden`}
+      className={`w-full h-fit absolute top-0 right-0 z-10 transition duration-500 ease-in-out origin-top ${isOpen} pb-12 bg-box-color lg:hidden`}
     >
       <div className="w-full h-12 flex justify-end items-end pr-5 sm:pr-10">
         <button onClick={() => dispatch(close())}>
