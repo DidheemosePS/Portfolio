@@ -5,16 +5,16 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  isOpen: "translate-x-full",
+  isOpen: "-translate-y-full",
 };
 
-export const auth = createSlice({
+export const navigationSlider = createSlice({
   name: "auth",
   initialState,
   reducers: {
     open: () => {
       return {
-        isOpen: "translate-x-0",
+        isOpen: "-translate-y-0",
       };
     },
     close: () => {
@@ -23,5 +23,5 @@ export const auth = createSlice({
   },
 });
 
-export const { open, close } = auth.actions;
-export default auth.reducer;
+export const { open, close } = navigationSlider.actions;
+export default navigationSlider.reducer;

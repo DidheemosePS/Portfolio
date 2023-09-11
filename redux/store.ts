@@ -1,11 +1,11 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import auth from "./features/auth-slice";
+import navigationSlider from "./features/navigationSlider-slice";
 
 export const store = configureStore({
   reducer: {
-    auth,
+    navigationSlider,
   },
 });
 

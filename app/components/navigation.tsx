@@ -4,7 +4,7 @@ import Link from "next/link";
 import { VscThreeBars } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
-import { open } from "../../redux/features/auth-slice";
+import { open } from "../../redux/features/navigationSlider-slice";
 export default function Navigation() {
   const dispatch = useDispatch<AppDispatch>();
 
