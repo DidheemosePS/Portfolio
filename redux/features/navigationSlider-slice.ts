@@ -1,20 +1,22 @@
+"use client";
+
 import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
-  isOpen: string;
+  isOpen: boolean;
 }
 
 const initialState: InitialState = {
-  isOpen: "-translate-y-full",
+  isOpen: false,
 };
 
 export const navigationSlider = createSlice({
-  name: "auth",
+  name: "navigationSlider",
   initialState,
   reducers: {
     open: () => {
       return {
-        isOpen: "-translate-y-0",
+        isOpen: true,
       };
     },
     close: () => {
