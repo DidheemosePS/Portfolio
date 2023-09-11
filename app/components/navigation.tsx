@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { VscThreeBars } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
-import { open } from "../../redux/features/navigationSlider-slice";
+import { AppDispatch } from "@/redux/store";
+import { open } from "@/redux/features/navigationSlider-slice";
 export default function Navigation() {
   const hoverEffect: string =
     "border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c";

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 //Components Imports
 import Navigation from "@/components/navigation";
 import NavigationSlider from "./components/navigationSlider";
-import { ReduxProvider } from "../redux/provider";
+import { ReduxProvider } from "@/redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 

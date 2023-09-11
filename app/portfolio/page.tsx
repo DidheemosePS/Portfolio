@@ -24,7 +24,7 @@ export default function Portfolio() {
             alt="Image"
             className="w-full h-full"
           />
-          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out origin-bottom p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
+          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
             <p>PlantIn Web App</p>
             <p className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
@@ -45,7 +45,7 @@ export default function Portfolio() {
             alt="Image"
             className="w-full h-full object-cover"
           />
-          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out origin-bottom p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
+          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
             <p>PlantIn Web App</p>
             <p className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
@@ -66,7 +66,7 @@ export default function Portfolio() {
             alt="Image"
             className="w-full h-full object-cover"
           />
-          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out origin-bottom p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
+          <div className="w-full h-full flex flex-col justify-center items-center gap-4 rounded-lg absolute top-0 translate-y-full transition duration-500 ease-in-out p-5 bg-gradient-to-t from-red-#ff044c group-hover/works:translate-y-0">
             <p>PlantIn Web App</p>
             <p className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
