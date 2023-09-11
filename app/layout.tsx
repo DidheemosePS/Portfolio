@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 //Components Imports
 import Navigation from "@/components/navigation";
+import NavigationSlider from "./components/navigationSlider";
 import { ReduxProvider } from "../redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,9 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border pl-5 pr-5 sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40`}
+        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border pl-5 pr-5 sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40 relative`}
       >
         <ReduxProvider>
+          <NavigationSlider />
           <Navigation />
           {children}
         </ReduxProvider>

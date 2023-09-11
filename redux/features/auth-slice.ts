@@ -1,44 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface AuthState {
-  isAuth: boolean;
-  username: string;
-  uid: string;
-  isModerator: boolean;
-}
-
 interface InitialState {
-  value: AuthState;
+  isOpen: string;
 }
 
-const initialState = {
-  value: {
-    isAuth: false,
-    username: "",
-    uid: "",
-    isModerator: false,
-  } as AuthState,
-} as InitialState;
+const initialState: InitialState = {
+  isOpen: "translate-x-full",
+};
 
 export const auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logOut: () => {
-      return initialState;
-    },
-    login: (state, action: PayloadAction<string>) => {
+    open: () => {
       return {
-        value: {
-          isAuth: true,
-          username: action.payload,
-          uid: "sdsaffadasfdfa",
-          isModerator: false,
-        },
+        isOpen: "translate-x-0",
       };
+    },
+    close: () => {
+      return initialState;
     },
   },
 });
 
-export const { login, logOut } = auth.actions;
+export const { open, close } = auth.actions;
 export default auth.reducer;

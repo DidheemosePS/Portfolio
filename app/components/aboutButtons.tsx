@@ -1,9 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { login, logOut } from "../../redux/features/auth-slice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import React, { useState } from "react";
 import Head from "next/head";
 export default function AboutButtons({
   children,
@@ -23,14 +20,6 @@ export default function AboutButtons({
   const [experienceStyle, setExperienceStyle] = useState<string>(style1);
 
   const [educationStyle, setEducationStyle] = useState<string>(style1);
-
-  const dispatch = useDispatch();
-  const authState = useSelector((state: RootState) => state.auth.value);
-
-  useEffect(() => {
-    const test = dispatch(login("hi"));
-    console.log(test);
-  }, []);
 
   return (
     <>
