@@ -7,6 +7,8 @@ import { RootState } from "../../redux/store";
 import { close } from "../../redux/features/navigationSlider-slice";
 
 export default function NavigationSlider() {
+  const hoverEffect =
+    "border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c";
   const { isOpen } = useSelector((state: RootState) => state.navigationSlider);
   const dispatch = useDispatch();
 
@@ -20,11 +22,21 @@ export default function NavigationSlider() {
         </button>
       </div>
       <div className="flex flex-col gap-12 items-center">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/services">Services</Link>
-        <Link href="/portfolio">Portfolio</Link>
-        <Link href="/contact">Contact</Link>
+        <Link href="/" className={hoverEffect}>
+          Home
+        </Link>
+        <Link href="/about" className={hoverEffect}>
+          About
+        </Link>
+        <Link href="/services" className={hoverEffect}>
+          Services
+        </Link>
+        <Link href="/portfolio" className={hoverEffect}>
+          Portfolio
+        </Link>
+        <Link href="/contact" className={hoverEffect}>
+          Contact
+        </Link>
       </div>
     </div>
   );

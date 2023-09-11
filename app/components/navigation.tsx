@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { open } from "../../redux/features/navigationSlider-slice";
 export default function Navigation() {
+  const hoverEffect: string =
+    "border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c";
   const dispatch = useDispatch<AppDispatch>();
 
   return (
@@ -17,11 +19,24 @@ export default function Navigation() {
         <VscThreeBars size={30} className="text-red-#ff044c" />
       </button>
       <div className="hidden lg:flex gap-12">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/services">Services</Link>
-        <Link href="/portfolio">Portfolio</Link>
-        <Link href="/contact">Contact</Link>
+        <Link
+          href="/"
+          className="border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c"
+        >
+          Home
+        </Link>
+        <Link href="/about" className={hoverEffect}>
+          About
+        </Link>
+        <Link href="/services" className={hoverEffect}>
+          Services
+        </Link>
+        <Link href="/portfolio" className={hoverEffect}>
+          Portfolio
+        </Link>
+        <Link href="/contact" className={hoverEffect}>
+          Contact
+        </Link>
       </div>
     </div>
   );
