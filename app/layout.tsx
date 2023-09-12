@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border pl-5 pr-5 relative sm:pl-10 sm:pr-10 lg:pl-14 lg:pr-14 xl:pl-28 xl:pr-28 2xl:pl-40 2xl:pr-40`}
+        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border px-5 relative sm:px-10 lg:px-14 xl:px-28 2xl:px-40`}
       >
         <ReduxProvider>
           <NavigationSlider />
