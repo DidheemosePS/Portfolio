@@ -26,7 +26,6 @@ export default async function Home() {
         <div>
           <p className="text-4xl font-bold md:inline lg:text-5xl">Hi, I'm</p>
           <p className="text-4xl font-bold text-red-#ff044c md:inline lg:text-5xl">
-            {" "}
             {data?.name}
           </p>
         </div>
