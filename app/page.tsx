@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const getHomeData = async () => {
   try {
-    const response = await fetch("https://portfolio-didheemoseps.vercel.app/api/home", {
+    const response = await fetch(`${process.env.VERCEL_URL}/api/home`, {
       cache: "no-cache",
     });
     return response.json();
