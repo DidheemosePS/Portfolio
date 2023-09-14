@@ -2,9 +2,12 @@ import Image from "next/image";
 
 const getHomeData = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:3000/api/home", {
-      cache: "no-cache",
-    });
+    const response = await fetch(
+      "portfolio-js00rodt9-didheemoseps.vercel.app/api/home",
+      {
+        cache: "no-cache",
+      }
+    );
     return response.json();
   } catch (error) {
     console.log(error);
