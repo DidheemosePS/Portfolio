@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const getHomeData = async () => {
   try {
-    const VERCEL_URL = process.env.VERCEL_URL;
-    const response = await fetch(`${VERCEL_URL}/api/home`, {
+    const SERVER_URL = process.env.SERVER_URL;
+    const response = await fetch(`${SERVER_URL}/api/home`, {
       cache: "no-cache",
     });
     return response.json();
