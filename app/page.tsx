@@ -2,8 +2,7 @@ import Image from "next/image";
 
 const getHomeData = async () => {
   try {
-    const SERVER_URL = process.env.SERVER_URL;
-    const response = await fetch(`${SERVER_URL}/api/home`, {
+    const response = await fetch(`${process.env.SERVER_URL}/api/home`, {
       cache: "no-cache",
     });
     return response.json();
