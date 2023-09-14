@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const getHomeData = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/home", {
+    const response = await fetch("http://127.0.0.1:3000/api/home", {
       cache: "no-cache",
     });
     return response.json();
