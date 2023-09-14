@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Portfolio() {
   return (
-    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center justify-center place-content-start gap-5 pt-5 pb-5">
+    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center justify-center place-content-start gap-5 py-5">
       <p className="text-2xl font-bold lg:self-start md:text-3xl lg:text-4xl">
         My Work
       </p>

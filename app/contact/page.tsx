@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="w-full h-fit min-h-[calc(100vh-3rem)] grid grid-cols-1 grid-rows-2 items-center md:grid-cols-2 md:grid-rows-1">
-      <div className="grid grid-cols-1 auto-rows-max gap-5 justify-items-center md:justify-items-start md:grid-rows-[2.5rem,2.5rem,8rem]">
+    <div className="w-full h-fit min-h-[calc(100vh-3rem)] grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
+      <div className="grid grid-cols-1 auto-rows-max gap-5 justify-items-center self-center md:justify-items-start md:grid-rows-[2.5rem,2.5rem,8rem]">
         <p className="text-2xl font-bold md:self-center md:text-3xl lg:text-4xl">
           Contact Me
         </p>
@@ -28,7 +28,7 @@ export default function Contact() {
           <Contact_Download_Buttons />
         </div>
       </div>
-      <div className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem] gap-5 relative">
+      <div className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0">
         <input
           type="text"
           placeholder="Your Name"

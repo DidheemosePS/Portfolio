@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 pt-5 pb-5 lg:flex-row">
+    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
       <div className="w-full max-w-xs h-80 rounded-lg sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
         <Image
           src="./didhee.png"

@@ -25,7 +25,7 @@ export function Contact_Download_Buttons() {
 export function Contact_Submit_Buttons() {
   return (
     <button
-      className="w-fit border rounded-lg border-red-#ff044c pl-6 pr-6 pt-2 pb-2 absolute top-[17.5rem] left-2/4 -translate-x-2/4 md:top-[16.75rem] md:left-0 md:-translate-x-0"
+      className="w-fit border rounded-lg border-red-#ff044c px-6 py-2 justify-self-center md:absolute md:left-0 md:-bottom-16"
       onClick={() => alert("Button Clicked")}
     >
       Submit
