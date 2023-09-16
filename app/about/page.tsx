@@ -15,7 +15,8 @@ const getAboutData = async () => {
     const response = await fetch(`${process.env.SERVER_URL}/api/about`, {
       cache: "no-cache",
     });
-    return await response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
