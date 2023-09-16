@@ -8,7 +8,36 @@ datasource db {
 }
 
 model about {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  skills      skills[]
+  experience  experience[]
+  education   education[]
+  imageUrl    String
+}
+
+model skills {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  skill   String
+  about   about?  @relation(fields: [aboutId], references: [id])
+  aboutId String? @db.ObjectId
+}
+
+model experience {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  experience String
+  about      about?  @relation(fields: [aboutId], references: [id])
+  aboutId    String? @db.ObjectId
+}
+
+model education {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  education String
+  about     about?  @relation(fields: [aboutId], references: [id])
+  aboutId   String? @db.ObjectId
 }
 
 model contact {

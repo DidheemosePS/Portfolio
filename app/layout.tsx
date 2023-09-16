@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Navigation from "@/components/navigation";
 import NavigationSlider from "./components/navigationSlider";
 import { ReduxProvider } from "@/redux/provider";
+import SonnerProvider from "./sonner-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +29,11 @@ export default function RootLayout({
         className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border px-5 relative sm:px-10 lg:px-14 xl:px-28 2xl:px-40`}
       >
         <ReduxProvider>
-          <NavigationSlider />
-          <Navigation />
-          {children}
+          <SonnerProvider>
+            <NavigationSlider />
+            <Navigation />
+            {children}
+          </SonnerProvider>
         </ReduxProvider>
       </body>
     </html>

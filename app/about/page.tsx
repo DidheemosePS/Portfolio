@@ -10,17 +10,58 @@ export const metadata: Metadata = {
   description: "About",
 };
 
-export default function About() {
+const getAboutData = async () => {
+  try {
+    const response = await fetch(`${process.env.SERVER_URL}/api/about`, {
+      cache: "no-cache",
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default async function About() {
+  interface Skills {
+    id: string;
+    title: string;
+    skill: string;
+    aboutId: string;
+  }
+
+  interface Experience {
+    id: string;
+    title: string;
+    experience: string;
+    aboutId: string;
+  }
+
+  interface Education {
+    id: string;
+    title: string;
+    education: string;
+    aboutId: string;
+  }
+
+  interface Data {
+    id: string;
+    description: string;
+    imageUrl: string;
+    skills: Skills[];
+    experience: Experience[];
+    education: Education[];
+  }
+  const [data]: Data[] = await getAboutData();
+
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
       <div className="w-full max-w-xs h-80 rounded-lg sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
         <Image
-          src="./didhee.png"
+          src={data?.imageUrl}
           alt="Image"
           width={100}
           height={100}
           quality={100}
-          // loading="lazy"
           priority
           className="w-full h-full rounded-lg"
         />
@@ -29,16 +70,11 @@ export default function About() {
         <p className="text-center text-2xl font-bold md:text-3xl lg:text-start lg:text-4xl">
           About Me
         </p>
-        <p className="text-justify text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          ducimus quod necessitatibus beatae deleniti, nobis ipsum perferendis
-          sunt tenetur natus inventore et nulla accusantium fugiat, eum eveniet
-          voluptas eligendi doloremque.
-        </p>
+        <p className="text-justify text-gray-300">{data?.description}</p>
         <AboutButtons>
-          <Skills />
-          <Experience />
-          <Education />
+          <Skills>{data?.skills}</Skills>
+          <Experience>{data?.experience}</Experience>
+          <Education>{data?.education}</Education>
         </AboutButtons>
       </div>
     </div>

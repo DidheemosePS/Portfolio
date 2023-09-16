@@ -1,10 +1,21 @@
-export default function Education() {
+interface Education {
+  id: string;
+  title: string;
+  education: string;
+  aboutId: string;
+}
+
+export default function Education({ children }: { children: Education[] }) {
   return (
     <div className="flex flex-col gap-4">
-      <div>
-        <p className="text-hibiscus">2020 - 2023</p>
-        <p className="text-gray-300">Bachelor of Computer Application</p>
-      </div>
+      {children?.map((data) => {
+        return (
+          <div key={data.id}>
+            <p className="text-hibiscus">{data.title}</p>
+            <p className="text-gray-300">{data.education}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

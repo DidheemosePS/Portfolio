@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
-import {
-  Contact_Download_Buttons,
-  Contact_Submit_Buttons,
-} from "@/components/commonButtons";
+import { Contact_Download_Buttons } from "@/components/commonButtons";
+import HandleContactPage from "@/components/handleContactPage";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact",
@@ -28,23 +26,7 @@ export default function Contact() {
           <Contact_Download_Buttons />
         </div>
       </div>
-      <div className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="rounded-md bg-box-color p-2 placeholder:text-sm"
-        />
-        <input
-          type="text"
-          placeholder="Your Email"
-          className="rounded-md bg-box-color p-2 placeholder:text-sm"
-        />
-        <textarea
-          placeholder="Your Message"
-          className="rounded-md bg-box-color p-2 placeholder:text-sm resize-none"
-        ></textarea>
-        <Contact_Submit_Buttons />
-      </div>
+      <HandleContactPage />
     </div>
   );
 }

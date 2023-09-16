@@ -13,6 +13,7 @@ const getHomeData = async () => {
 
 export default async function Home() {
   interface Data {
+    id: string;
     name: string;
     role: string;
     imageUrl: string;
@@ -38,7 +39,6 @@ export default async function Home() {
           width={100}
           height={100}
           quality={100}
-          // loading="lazy"
           priority
           className="w-full h-full"
         />
