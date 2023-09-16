@@ -1,3 +1,5 @@
+"use client";
+
 interface Education {
   id: string;
   title: string;

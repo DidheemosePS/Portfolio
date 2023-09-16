@@ -1,3 +1,5 @@
+"use client";
+
 interface Skills {
   id: string;
   title: string;
