@@ -71,11 +71,11 @@ export default async function About() {
           About Me
         </p>
         <p className="text-justify text-gray-300">{data?.description}</p>
-        <AboutButtons>
+        {/* <AboutButtons>
           <Skills>{data?.skills}</Skills>
           <Experience>{data?.experience}</Experience>
           <Education>{data?.education}</Education>
-        </AboutButtons>
+        </AboutButtons> */}
       </div>
     </div>
   );
