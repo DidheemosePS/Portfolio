@@ -49,7 +49,7 @@ export default function HandleContactPage() {
   return (
     <form
       onSubmit={handleContactSubmit}
-      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0"
+      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 text-white md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0"
     >
       <input
         type="text"

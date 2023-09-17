@@ -12,7 +12,7 @@ export default function Services() {
       <p className="text-2xl font-bold lg:self-start md:text-3xl lg:text-4xl">
         My Services
       </p>
-      <div className="w-full flex flex-wrap gap-4">
+      <div className="w-full flex flex-wrap gap-4 text-white">
         <div className="w-80 h-56 flex flex-col justify-center grow gap-4 rounded-lg p-5 bg-box-color transition duration-500 ease-in-out hover:bg-red-#ff044c ">
           <BsApple />
           <p className="text-2xl font-bold">Web Design</p>
