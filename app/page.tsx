@@ -5,8 +5,7 @@ const getHomeData = async () => {
     const response = await fetch(`${process.env.SERVER_URL}/api/home`, {
       cache: "no-cache",
     });
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.log(error);
   }
