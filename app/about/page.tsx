@@ -51,13 +51,13 @@ export default async function About() {
     experience: Experience[];
     education: Education[];
   }
-  const data: Data[] = await getAboutData();
+  const [data]: Data[] = await getAboutData();
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
       <div className="w-full max-w-xs h-80 rounded-lg sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
         <Image
-          src={data[0]?.imageUrl}
+          src={data?.imageUrl}
           alt="Image"
           width={100}
           height={100}
@@ -70,11 +70,11 @@ export default async function About() {
         <p className="text-center text-2xl font-bold md:text-3xl lg:text-start lg:text-4xl">
           About Me
         </p>
-        <p className="text-justify text-gray-300">{data[0]?.description}</p>
+        <p className="text-justify text-gray-300">{data?.description}</p>
         <AboutButtons>
-          <Skills>{data[0]?.skills}</Skills>
-          <Experience>{data[0]?.experience}</Experience>
-          <Education>{data[0]?.education}</Education>
+          <Skills>{data?.skills}</Skills>
+          <Experience>{data?.experience}</Experience>
+          <Education>{data?.education}</Education>
         </AboutButtons>
       </div>
     </div>
