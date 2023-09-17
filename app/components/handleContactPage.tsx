@@ -49,7 +49,7 @@ export default function HandleContactPage() {
   return (
     <form
       onSubmit={handleContactSubmit}
-      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 text-white md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0"
+      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0"
     >
       <input
         type="text"
@@ -57,7 +57,7 @@ export default function HandleContactPage() {
         value={formState.name}
         onChange={handleChange("name")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm"
+        className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
       />
       <input
         type="text"
@@ -65,14 +65,14 @@ export default function HandleContactPage() {
         value={formState.email}
         onChange={handleChange("email")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm"
+        className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
       />
       <textarea
         placeholder="Your Message"
         value={formState.message}
         onChange={handleChange("message")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm resize-none"
+        className="rounded-md bg-box-color p-2 placeholder:text-sm resize-none text-white"
       ></textarea>
       <button
         type="submit"
