@@ -51,7 +51,7 @@ export default async function About() {
     experience: Experience[];
     education: Education[];
   }
-  const [data]: Data[] = await getAboutData();
+  const [data] = await getAboutData();
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
@@ -71,11 +71,11 @@ export default async function About() {
           About Me
         </p>
         <p className="text-justify text-gray-300">{data?.description}</p>
-        {/* <AboutButtons>
+        <AboutButtons>
           <Skills>{data?.skills}</Skills>
           <Experience>{data?.experience}</Experience>
           <Education>{data?.education}</Education>
-        </AboutButtons> */}
+        </AboutButtons>
       </div>
     </div>
   );
