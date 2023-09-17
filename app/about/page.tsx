@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const getAboutData = async () => {
   try {
-    const response = await fetch(`${process.env.SERVER_URL}/api/about`, {
+    const response = await fetch(`https://didheemose.vercel.app/api/about`, {
       cache: "no-cache",
     });
     return await response.json();
@@ -51,7 +51,7 @@ export default async function About() {
     experience: Experience[];
     education: Education[];
   }
-  const [data] = await getAboutData();
+  const [data]: Data[] = await getAboutData();
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
