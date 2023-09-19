@@ -25,7 +25,7 @@ export default async function Home() {
       <div className="w-fit h-full flex flex-col justify-center absolute left-0">
         <p className="text-xl font-medium lg:text-4xl">{data?.role}</p>
         <div>
-          <p className="text-4xl font-bold md:inline lg:text-5xl">Hi, I'm</p>
+          <p className="text-4xl font-bold md:inline lg:text-5xl">Hi, I'm </p>
           <p className="text-4xl font-bold text-red-#ff044c md:inline lg:text-5xl">
             {data?.name}
           </p>

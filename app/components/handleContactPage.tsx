@@ -60,7 +60,7 @@ export default function HandleContactPage() {
         className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
       />
       <input
-        type="text"
+        type="email"
         placeholder="Your Email"
         value={formState.email}
         onChange={handleChange("email")}
