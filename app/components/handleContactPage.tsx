@@ -7,7 +7,7 @@ import { IoIosSend } from "react-icons/io";
 
 export default function HandleContactPage() {
   const initialFormState = {
-    name: "",
+    authorName: "",
     email: "",
     message: "",
   };
@@ -54,8 +54,8 @@ export default function HandleContactPage() {
       <input
         type="text"
         placeholder="Your Name"
-        value={formState.name}
-        onChange={handleChange("name")}
+        value={formState.authorName}
+        onChange={handleChange("authorName")}
         required
         className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
       />
