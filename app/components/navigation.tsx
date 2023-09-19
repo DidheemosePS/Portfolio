@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { VscThreeBars } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { open } from "@/redux/features/navigationSlider-slice";
+
 export default function Navigation() {
-  const hoverEffect: string =
-    "border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c";
+  const active_route: string = "border-b-2 border-red-#ff044c";
+
+  const inActive_route: string = "border-b-2 border-transparent";
+
+  const pathname = usePathname();
+
   const dispatch = useDispatch<AppDispatch>();
 
   return (
@@ -21,20 +27,32 @@ export default function Navigation() {
       <div className="hidden lg:flex gap-12">
         <Link
           href="/"
-          className="border-b-2 border-transparent transition duration-500 ease-in-out hover:border-b-red-#ff044c"
+          className={pathname === "/" ? active_route : inActive_route}
         >
           Home
         </Link>
-        <Link href="/about" className={hoverEffect}>
+        <Link
+          href="/about"
+          className={pathname === "/about" ? active_route : inActive_route}
+        >
           About
         </Link>
-        <Link href="/services" className={hoverEffect}>
+        <Link
+          href="/services"
+          className={pathname === "/services" ? active_route : inActive_route}
+        >
           Services
         </Link>
-        <Link href="/portfolio" className={hoverEffect}>
+        <Link
+          href="/portfolio"
+          className={pathname === "/portfolio" ? active_route : inActive_route}
+        >
           Portfolio
         </Link>
-        <Link href="/contact" className={hoverEffect}>
+        <Link
+          href="/contact"
+          className={pathname === "/contact" ? active_route : inActive_route}
+        >
           Contact
         </Link>
       </div>
