@@ -27,18 +27,20 @@ export const ContactFormEmail = ({
       <Preview>Read {authorName}'s message</Preview>
       <Tailwind>
         <Body>
-          <Container>
-            <Section>
-              <Row>
-                <Text className="text-3xl font-semibold text-gray-700">
-                  Here's what {authorName} wrote
-                </Text>
-                <Text className="text-base leading-5 text-gray-700 bg-gray-200 p-6 rounded-md mt-4">
-                  "{message}"
-                </Text>
-              </Row>
-            </Section>
-          </Container>
+          <Section>
+            <Container>
+              <Section>
+                <Row>
+                  <Text className="text-3xl font-semibold text-gray-700">
+                    Here's what {authorName} wrote
+                  </Text>
+                  <Text className="text-base leading-5 text-gray-700 bg-gray-200 p-6 rounded-md mt-4">
+                    "{message}"
+                  </Text>
+                </Row>
+              </Section>
+            </Container>
+          </Section>
         </Body>
       </Tailwind>
     </Html>

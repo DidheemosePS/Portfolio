@@ -9,7 +9,7 @@ export const POST = async (request: Request) => {
   try {
     const { authorName, email, message } = await request.json();
     const response = await resend.emails.send({
-      from: `${process.env.EMAIL_FROM}`,
+      from: `Portfolio <${process.env.EMAIL_FROM}>`,
       to: `${process.env.EMAIL_TO}`,
       reply_to: email,
       subject: "A message from your portfolio",

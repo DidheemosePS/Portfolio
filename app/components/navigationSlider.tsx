@@ -6,6 +6,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { close } from "../../redux/features/navigationSlider-slice";
+import { useEffect, useRef } from "react";
 
 export default function NavigationSlider() {
   const active_route: string = "border-b-2 border-red-#ff044c";
@@ -18,8 +19,28 @@ export default function NavigationSlider() {
 
   const dispatch = useDispatch();
 
+  const SliderRef: any = useRef(null);
+
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (!SliderRef?.current?.contains(e.target)) {
+      dispatch(close());
+    }
+  };
+
+  useEffect(() => {
+    try {
+      document.addEventListener("click", handleOutsideClick, true);
+      return () => {
+        document.removeEventListener("click", handleOutsideClick, true);
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div
+      ref={SliderRef}
       className={`w-full h-fit absolute top-0 right-0 z-20 transition duration-500 ease-in-out ${
         isOpen ? "-translate-y-0" : "-translate-y-full"
       } pb-12 text-white bg-box-color lg:hidden`}

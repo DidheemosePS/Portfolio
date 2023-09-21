@@ -1,8 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-
-//Components Imports
 import Navigation from "@/components/navigation";
 import NavigationSlider from "./components/navigationSlider";
 import { ReduxProvider } from "@/redux/provider";
