@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { Portfolio_Buttons } from "@/components/commonButtons";
+import { Portfolio_Buttons } from "@/components/buttons";
 
 export const metadata: Metadata = {
   title: "Portfolio",

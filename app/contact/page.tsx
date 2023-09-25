@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
-import { Contact_Download_Buttons } from "@/components/commonButtons";
+import { Contact_Download_Buttons } from "@/components/buttons";
 import HandleContactPage from "@/components/handleContactPage";
 export const metadata: Metadata = {
   title: "Contact",
