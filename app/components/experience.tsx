@@ -7,10 +7,14 @@ interface Experience {
   aboutId: string;
 }
 
-export default function Experience({ children }: { children: Experience[] }) {
+export default function Experience({
+  experience,
+}: {
+  experience: Experience[];
+}) {
   return (
     <div className="flex flex-col gap-4">
-      {children?.map((data) => {
+      {experience?.map((data) => {
         return (
           <div key={data.id}>
             <p className="text-hibiscus">{data.title}</p>

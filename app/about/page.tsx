@@ -71,9 +71,9 @@ export default async function About() {
         </p>
         <p className="text-justify text-gray-300">{data?.description}</p>
         <AboutButtons>
-          <Skills>{data?.skills}</Skills>
-          <Experience>{data?.experience}</Experience>
-          <Education>{data?.education}</Education>
+          <Skills skills={data?.skills} />
+          <Experience experience={data?.experience} />
+          <Education education={data?.education} />
         </AboutButtons>
       </div>
     </div>

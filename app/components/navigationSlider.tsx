@@ -43,7 +43,7 @@ export default function NavigationSlider() {
       ref={SliderRef}
       className={`w-full h-fit absolute top-0 right-0 z-20 transition duration-500 ease-in-out ${
         isOpen ? "-translate-y-0" : "-translate-y-full"
-      } pb-12 text-white bg-box-color lg:hidden`}
+      } pb-12 text-white bg-transparent backdrop-blur lg:hidden`}
     >
       <div className="w-full h-12 flex justify-end items-end pr-5 sm:pr-10">
         <button onClick={() => dispatch(close())}>

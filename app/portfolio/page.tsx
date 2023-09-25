@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { Services_Portfolio_Buttons } from "@/components/commonButtons";
+import { Portfolio_Buttons } from "@/components/commonButtons";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -83,7 +83,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-      <Services_Portfolio_Buttons />
+      <Portfolio_Buttons />
     </div>
   );
 }

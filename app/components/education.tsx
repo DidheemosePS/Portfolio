@@ -7,10 +7,10 @@ interface Education {
   aboutId: string;
 }
 
-export default function Education({ children }: { children: Education[] }) {
+export default function Education({ education }: { education: Education[] }) {
   return (
     <div className="flex flex-col gap-4">
-      {children?.map((data) => {
+      {education?.map((data) => {
         return (
           <div key={data.id}>
             <p className="text-hibiscus">{data.title}</p>
