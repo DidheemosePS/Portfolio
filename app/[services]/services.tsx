@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Loading from "./loading";
-import { Services_Buttons } from "@/components/commonButtons";
+import { Services_Buttons } from "@/components/buttons";
 
 export default function ServicesClientSide() {
   interface Data {
