@@ -21,7 +21,7 @@ export default function ServicesClientSide() {
 
   const getAboutData = async (skip: number) => {
     try {
-      const response = await fetch(`/api/services?skip=${skip}`, {
+      const response = await fetch(`/api/services/skip?skip=${skip}`, {
         cache: "no-cache",
       });
       const { data, count } = await response.json();

@@ -41,7 +41,14 @@ model education {
 }
 
 model contact {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  mail          String
+  phone         String
+  facebookLink  String
+  twitterLink   String
+  instagramLink String
+  linkedinLink  String
+  resumeUrl     String
 }
 
 model home {
@@ -52,7 +59,11 @@ model home {
 }
 
 model portfolio {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  imageUrl    String
+  link        String
+  title       String
 }
 
 model services {
