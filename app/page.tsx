@@ -5,7 +5,8 @@ const getHomeData = async () => {
     const response = await fetch(`${process.env.SERVER_URL}/api/home`, {
       cache: "no-cache",
     });
-    return await response.json();
+    const { data } = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
@@ -18,7 +19,7 @@ export default async function Home() {
     role: string;
     imageUrl: string;
   }
-  const [data]: Data[] = await getHomeData();
+  const data: Data = await getHomeData();
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] relative overflow-hidden">
