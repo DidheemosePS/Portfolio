@@ -51,7 +51,7 @@ export default async function Contact() {
             <Link href={data?.instagramLink} target="_blank">
               <BsInstagram />
             </Link>
-            <Link href={data?.instagramLink} target="_blank">
+            <Link href={data?.linkedinLink} target="_blank">
               <BsLinkedin />
             </Link>
           </div>
