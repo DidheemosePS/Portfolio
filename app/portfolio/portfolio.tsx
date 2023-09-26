@@ -26,7 +26,7 @@ export default function PortfolioClientSide() {
 
   const getPortfolioData = async (skip: number) => {
     try {
-      const response = await fetch(`/api/portfolio/skip?skip=${skip}`, {
+      const response = await fetch(`/api/portfolio/skip?value=${skip}`, {
         cache: "no-cache",
       });
       const { data, count } = await response.json();
