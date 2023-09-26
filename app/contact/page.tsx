@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   description: "Contact",
 };
 
+const getContactData = async () => {
+  try {
+    const response = await fetch(`${process.env.SERVER_URL}/api/contact`, {
+      cache: "no-cache",
+    });
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default async function Contact() {
   interface Data {
     mail: string;
@@ -18,17 +29,6 @@ export default async function Contact() {
     linkedinLink: string;
     resumeUrl: string;
   }
-
-  const getContactData = async () => {
-    try {
-      const response = await fetch(`${process.env.SERVER_URL}/api/contact`, {
-        cache: "no-cache",
-      });
-      return await response.json();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const [data]: Data[] = await getContactData();
 
