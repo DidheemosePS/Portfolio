@@ -21,6 +21,7 @@ const getContactData = async () => {
 
 export default async function Contact() {
   interface Data {
+    id: string;
     mail: string;
     phone: string;
     facebookLink: string;
