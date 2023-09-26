@@ -30,7 +30,7 @@ export default async function Contact() {
     resumeUrl: string;
   }
 
-  const [data]: Data[] = await getContactData();
+  // const [data]: Data[] = await getContactData();
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
