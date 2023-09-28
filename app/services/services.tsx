@@ -18,7 +18,10 @@ export default function ServicesClientSide() {
 
   const getServicesData = async (skip: number) => {
     try {
-      const { data, count } = await ServicesAction(skip);
+      const { data, count } = (await ServicesAction(skip)) as {
+        data: Data[];
+        count: number;
+      };
       data.forEach((element: Data) => {
         setData((current) => [...current, element]);
       });

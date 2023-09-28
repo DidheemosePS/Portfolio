@@ -23,7 +23,10 @@ export default function PortfolioClientSide() {
 
   const getPortfolioData = async (skip: number) => {
     try {
-      const { data, count } = await PortfolioAction(skip);
+      const { data, count } = (await PortfolioAction(skip)) as {
+        data: Data[];
+        count: number;
+      };
       data.forEach((element: Data) => {
         setData((current) => [...current, element]);
       });
