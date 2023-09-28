@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./loading";
 import { Services_Buttons } from "@/components/buttons";
-import ServicesAction from "./serverAction";
 
 export default function ServicesClientSide() {
   interface Data {
@@ -12,16 +11,20 @@ export default function ServicesClientSide() {
     description: string;
   }
 
+  interface Count {
+    count: number;
+  }
+
   const [data, setData] = useState<Data[]>([]);
-  const [count, setCount] = useState<Number>();
+  const [count, setCount] = useState<Count>();
   const [isLoading, setIsLoading] = useState(true);
 
   const getServicesData = async (skip: number) => {
     try {
-      const { data, count } = (await ServicesAction(skip)) as {
-        data: Data[];
-        count: number;
-      };
+      const response = await fetch(`/api/services/skip?value=${skip}`, {
+        cache: "no-cache",
+      });
+      const { data, count } = await response.json();
       data.forEach((element: Data) => {
         setData((current) => [...current, element]);
       });
