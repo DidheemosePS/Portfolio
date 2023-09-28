@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "Contact",
 };
 
+export const revalidate = 5;
+
 const getContactData = async () => {
   try {
     const prisma = new PrismaClient();

@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "Portfolio",
 };
 
+export const revalidate = 5;
+
 const getPortfolioData = async () => {
   try {
     const prisma = new PrismaClient();

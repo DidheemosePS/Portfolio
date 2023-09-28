@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Services",
 };
 
+export const revalidate = 5;
+
 const getServicesData = async () => {
   try {
     const prisma = new PrismaClient();

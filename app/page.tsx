@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { PrismaClient } from "@prisma/client";
 
+export const revalidate = 5;
+
 const getHomeData = async () => {
   try {
     const prisma = new PrismaClient();
@@ -16,6 +18,7 @@ export default async function Home() {
     id: string;
     name: string;
     role: string;
+    country: string;
     imageUrl: string;
   }
   const [data] = (await getHomeData()) as Data[];
@@ -30,7 +33,7 @@ export default async function Home() {
             {data?.name}
           </p>
         </div>
-        <p className="text-4xl font-bold lg:text-5xl">From India</p>
+        <p className="text-4xl font-bold lg:text-5xl">From {data?.country}</p>
       </div>
       <div className="w-full h-[calc(100vh-3rem)] absolute -right-32 -z-10 pt-5 sm:w-2/4 sm:right-0">
         <Image
