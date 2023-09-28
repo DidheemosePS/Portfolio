@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 import HandleContactPage from "@/components/handleContactPage";
 import Link from "next/link";
+import { PrismaClient } from "@prisma/client";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,10 +11,9 @@ export const metadata: Metadata = {
 
 const getContactData = async () => {
   try {
-    const response = await fetch(`${process.env.SERVER_URL}/api/contact`, {
-      cache: "no-cache",
-    });
-    return await response.json();
+    const prisma = new PrismaClient();
+    const response = await prisma.contact.findMany();
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -30,7 +30,7 @@ export default async function Contact() {
     resumeUrl: string;
   }
 
-  const [data]: Data[] = await getContactData();
+  const [data] = (await getContactData()) as Data[];
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">

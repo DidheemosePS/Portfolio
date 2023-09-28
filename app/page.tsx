@@ -1,11 +1,11 @@
 import Image from "next/image";
+import { PrismaClient } from "@prisma/client";
 
 const getHomeData = async () => {
   try {
-    const response = await fetch(`${process.env.SERVER_URL}/api/home`, {
-      cache: "no-cache",
-    });
-    return await response.json();
+    const prisma = new PrismaClient();
+    const response = await prisma.home.findMany();
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -18,7 +18,7 @@ export default async function Home() {
     role: string;
     imageUrl: string;
   }
-  const [data]: Data[] = await getHomeData();
+  const [data] = (await getHomeData()) as Data[];
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] relative overflow-hidden">

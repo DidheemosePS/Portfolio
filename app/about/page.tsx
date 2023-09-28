@@ -4,6 +4,7 @@ import AboutButtons from "@/components/aboutButtons";
 import Skills from "@/components/skills";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
+import { PrismaClient } from "@prisma/client";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,10 +13,15 @@ export const metadata: Metadata = {
 
 const getAboutData = async () => {
   try {
-    const response = await fetch(`${process.env.SERVER_URL}/api/about`, {
-      cache: "no-cache",
+    const prisma = new PrismaClient();
+    const response = await prisma.about.findMany({
+      include: {
+        skills: true,
+        experience: true,
+        education: true,
+      },
     });
-    return await response.json();
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -51,7 +57,7 @@ export default async function About() {
     experience: Experience[];
     education: Education[];
   }
-  const [data]: Data[] = await getAboutData();
+  const [data] = (await getAboutData()) as Data[];
 
   return (
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">

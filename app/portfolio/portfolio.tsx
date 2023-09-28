@@ -6,6 +6,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { Portfolio_Buttons } from "@/components/buttons";
 import { useEffect, useState } from "react";
 import Loading from "./loading";
+import PortfolioAction from "./serverAction";
 
 export default function PortfolioClientSide() {
   interface Data {
@@ -16,20 +17,13 @@ export default function PortfolioClientSide() {
     link: string;
   }
 
-  interface Count {
-    count: number;
-  }
-
   const [data, setData] = useState<Data[]>([]);
-  const [count, setCount] = useState<Count>();
+  const [count, setCount] = useState(Number);
   const [isLoading, setIsLoading] = useState(true);
 
   const getPortfolioData = async (skip: number) => {
     try {
-      const response = await fetch(`/api/portfolio/skip?value=${skip}`, {
-        cache: "no-cache",
-      });
-      const { data, count } = await response.json();
+      const { data, count } = await PortfolioAction(skip);
       data.forEach((element: Data) => {
         setData((current) => [...current, element]);
       });

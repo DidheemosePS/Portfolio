@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Loading from "./loading";
 import { Services_Buttons } from "@/components/buttons";
+import ServicesAction from "./serverAction";
 
 export default function ServicesClientSide() {
   interface Data {
@@ -11,20 +12,13 @@ export default function ServicesClientSide() {
     description: string;
   }
 
-  interface Count {
-    count: number;
-  }
-
   const [data, setData] = useState<Data[]>([]);
-  const [count, setCount] = useState<Count>();
+  const [count, setCount] = useState<Number>();
   const [isLoading, setIsLoading] = useState(true);
 
-  const getAboutData = async (skip: number) => {
+  const getServicesData = async (skip: number) => {
     try {
-      const response = await fetch(`/api/services/skip?value=${skip}`, {
-        cache: "no-cache",
-      });
-      const { data, count } = await response.json();
+      const { data, count } = await ServicesAction(skip);
       data.forEach((element: Data) => {
         setData((current) => [...current, element]);
       });
@@ -36,7 +30,7 @@ export default function ServicesClientSide() {
   };
 
   useEffect(() => {
-    getAboutData(0);
+    getServicesData(0);
   }, []);
 
   if (isLoading) {
@@ -63,7 +57,7 @@ export default function ServicesClientSide() {
         })}
       </div>
       {typeof count === "number" && count > 3 && (
-        <Services_Buttons getAboutData={getAboutData} count={count} />
+        <Services_Buttons getServicesData={getServicesData} count={count} />
       )}
     </div>
   );

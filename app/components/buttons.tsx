@@ -3,15 +3,15 @@
 import { useState } from "react";
 
 export function Services_Buttons({
-  getAboutData,
+  getServicesData,
   count,
 }: {
-  getAboutData: (skip: number) => void;
+  getServicesData: (skip: number) => void;
   count: number;
 }) {
   const [skip, setSkip] = useState(3);
   const handleSeeMore = () => {
-    getAboutData(skip);
+    getServicesData(skip);
     setSkip((current) => current + 3);
   };
 
