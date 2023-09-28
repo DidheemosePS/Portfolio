@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { VscThreeBars } from "react-icons/vsc";
+import { MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { close } from "../../redux/features/navigationSlider-slice";
@@ -47,7 +47,7 @@ export default function NavigationSlider() {
     >
       <div className="w-full h-12 flex justify-end items-end pr-5 sm:pr-10">
         <button onClick={() => dispatch(close())}>
-          <VscThreeBars size={30} className="text-red-#ff044c" />
+          <MdClose size={30} className="text-red-#ff044c" />
         </button>
       </div>
       <div className="flex flex-col gap-12 items-center">
