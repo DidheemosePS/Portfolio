@@ -28,9 +28,8 @@ export default function SignIn() {
       e.preventDefault();
       setIsLoading(true);
       await signIn("credentials", {
-        email: "sebastiandidheemose2002@gmail.com",
-        password: "password",
-        callbackUrl: "/dashboard",
+        email: formState.email,
+        password: formState.password,
       });
       setFormState(initialFormState);
       setIsLoading(false);
