@@ -27,13 +27,13 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
   },
   pages: {
     signIn: "/signin",
   },
-  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handle = NextAuth(authOptions);
