@@ -72,3 +72,10 @@ model services {
   description String
   title       String
 }
+
+model login {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String
+  password String
+}

@@ -70,6 +70,7 @@ export default async function About() {
           width={100}
           height={100}
           quality={100}
+          priority={true}
           className="w-full h-full rounded-lg"
         />
       </div>

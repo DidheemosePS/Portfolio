@@ -57,7 +57,8 @@ export default function HandleContactPage() {
         value={formState.authorName}
         onChange={handleChange("authorName")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
+        disabled={isLoading}
+        className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
       />
       <input
         type="email"
@@ -65,14 +66,16 @@ export default function HandleContactPage() {
         value={formState.email}
         onChange={handleChange("email")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm text-white"
+        disabled={isLoading}
+        className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
       />
       <textarea
         placeholder="Your Message"
         value={formState.message}
         onChange={handleChange("message")}
         required
-        className="rounded-md bg-box-color p-2 placeholder:text-sm resize-none text-white"
+        disabled={isLoading}
+        className="p-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200 resize-none"
       ></textarea>
       <button
         type="submit"

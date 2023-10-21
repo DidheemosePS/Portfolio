@@ -42,6 +42,7 @@ export default async function Home() {
           width={100}
           height={100}
           quality={100}
+          priority={true}
           className="w-full h-full"
         />
       </div>
