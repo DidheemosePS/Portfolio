@@ -1,13 +1,8 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 
-interface Credentials {
-  usernames: string;
-  password: string;
-}
-
-export const authOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -32,7 +27,7 @@ export const authOptions = {
       },
     }),
   ],
-  sesssion: {
+  session: {
     strategy: "jwt",
   },
   pages: {
