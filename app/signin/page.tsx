@@ -75,13 +75,13 @@ export default function SignIn() {
           <>
             {showPassword === "password" && (
               <AiFillEyeInvisible
-                className="absolute top-[12.8rem] left-80 text-box-color dark:text-white"
+                className="absolute top-[13.55rem] left-80 text-box-color dark:text-white"
                 onClick={() => setShowPassword("text")}
               />
             )}
             {showPassword === "text" && (
               <AiFillEye
-                className="absolute top-[12.8rem] left-80 text-box-color dark:text-white"
+                className="absolute top-[13.55rem] left-80 text-box-color dark:text-white"
                 onClick={() => setShowPassword("password")}
               />
             )}
