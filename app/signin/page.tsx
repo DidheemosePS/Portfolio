@@ -30,6 +30,7 @@ export default function SignIn() {
       await signIn("credentials", {
         email: formState.email,
         password: formState.password,
+        callbackUrl: "/dashboard",
       });
       setFormState(initialFormState);
       setIsLoading(false);
