@@ -41,6 +41,7 @@ export default function Skills({ skills }: { skills: Skills[] }) {
               name="title"
               defaultValue={value?.title}
               onChange={handleChange("title", value?.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             <label>Skill</label>
@@ -49,6 +50,7 @@ export default function Skills({ skills }: { skills: Skills[] }) {
               name="skill"
               defaultValue={value?.skill}
               onChange={handleChange("skill", value?.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             {formState.id === value?.id && (

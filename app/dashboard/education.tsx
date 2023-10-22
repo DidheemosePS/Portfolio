@@ -42,6 +42,7 @@ export default function Education({ education }: { education: Education[] }) {
               name="title"
               defaultValue={value?.title}
               onChange={handleChange("title", value.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             <label>Education</label>
@@ -50,6 +51,7 @@ export default function Education({ education }: { education: Education[] }) {
               name="education"
               defaultValue={value?.education}
               onChange={handleChange("education", value.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             {formState.id === value?.id && (

@@ -63,10 +63,11 @@ export default async function AboutPageDashboard() {
         <textarea
           name="description"
           defaultValue={about?.description}
+          required
           className="h-28 p-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200 resize-none"
         ></textarea>
         <label>Change Image</label>
-        <input type="file" name="imageURL" accept="image/*" />
+        <input type="file" name="imageURL" accept="image/*" required />
         <Link
           href={about?.imageUrl}
           target="_blank"

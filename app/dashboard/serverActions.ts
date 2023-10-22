@@ -104,3 +104,35 @@ export const handleEducationSubmit = async (formState: EducationFormState) => {
     console.log(error);
   }
 };
+
+interface DescriptionFormState {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export const handleServicesSubmit = async (formState: DescriptionFormState) => {
+  try {
+    const newFormState: { title?: string; description?: string } = {};
+
+    if (formState.title !== "") {
+      newFormState.title = formState.title;
+    }
+
+    if (formState.description !== "") {
+      newFormState.description = formState.description;
+    }
+
+    const prisma = new PrismaClient();
+    await prisma.services.update({
+      where: {
+        id: formState?.id,
+      },
+      data: newFormState,
+    });
+
+    revalidatePath("/");
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -60,6 +60,7 @@ export default async function HomePageDashboard() {
           type="text"
           name="role"
           defaultValue={home?.role}
+          required
           className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
         />
         <label>Name</label>
@@ -67,6 +68,7 @@ export default async function HomePageDashboard() {
           type="text"
           name="name"
           defaultValue={home?.name}
+          required
           className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
         />
         <label>Country</label>
@@ -74,10 +76,11 @@ export default async function HomePageDashboard() {
           type="text"
           name="country"
           defaultValue={home?.country}
+          required
           className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
         />
         <label>Change Image</label>
-        <input type="file" name="imageURL" accept="image/*" />
+        <input type="file" name="imageURL" accept="image/*" required />
         <Link
           href={home?.imageUrl}
           target="_blank"

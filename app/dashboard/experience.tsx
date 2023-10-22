@@ -46,6 +46,7 @@ export default function Experience({
               name="title"
               defaultValue={value?.title}
               onChange={handleChange("title", value.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             <label>Experience</label>
@@ -54,6 +55,7 @@ export default function Experience({
               name="experience"
               defaultValue={value?.experience}
               onChange={handleChange("experience", value.id)}
+              required
               className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
             />
             {formState.id === value?.id && (
