@@ -1,53 +1,105 @@
-import { PrismaClient } from "@prisma/client";
-import { writeFile } from "fs/promises";
-import { join } from "path";
-import { revalidatePath } from "next/cache";
+"use client";
+
 import Link from "next/link";
+import { toast } from "sonner";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { CgSpinner } from "react-icons/cg";
 import Skills from "./skills";
 import Experience from "./experience";
 import Education from "./education";
 
-export default async function AboutPageDashboard() {
-  const getDashboardData = async () => {
-    const prisma = new PrismaClient();
-    const about = await prisma.about.findMany({
-      include: {
-        skills: true,
-        education: true,
-        experience: true,
-      },
-    });
-    return about;
+interface About {
+  id: string;
+  description: string;
+  imageUpload: {
+    imageKEY: string;
+    imageURL: string;
   };
+  skills: {
+    id: string;
+    title: string;
+    skill: string;
+    aboutId: string;
+  }[];
+  experience: {
+    id: string;
+    title: string;
+    experience: string;
+    aboutId: string;
+  }[];
+  education: {
+    id: string;
+    title: string;
+    education: string;
+    aboutId: string;
+  }[];
+}
 
-  const [about] = await getDashboardData();
+export default function AboutPageDashboard({ about }: { about: About }) {
+  const router = useRouter();
+  const [formState, setFormState] = useState(
+    {} as Pick<About, "id" | "description"> & { imageUpload: File }
+  );
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleFormUpdate = async (formData: FormData) => {
-    "use server";
+  const handleChange =
+    (field: string, id: string) =>
+    (event: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) => {
+      if (field === "imageUpload" && event.target.files) {
+        const file = event.target.files[0];
+        setFormState((prevFormState) => ({
+          ...(prevFormState as Pick<About, "id" | "description"> & {
+            imageUpload: File;
+          }),
+          [field]: file,
+          id,
+        }));
+      } else {
+        setFormState((prevFormState) => ({
+          ...(prevFormState as Pick<About, "id" | "description"> & {
+            imageUpload: File;
+          }),
+          [field]: event.target.value,
+          id,
+        }));
+      }
+    };
 
-    let imageURL;
-    const file: File | null = formData?.get("imageURL") as File;
-
-    if (file?.size) {
-      const bytes = await file?.arrayBuffer();
-      const buffer = Buffer?.from(bytes);
-
-      const path = join("public", "images", Math.random() + file?.name);
-      await writeFile(path, buffer);
-      imageURL = path.slice(7, path?.length);
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    try {
+      event.preventDefault();
+      setIsLoading(true);
+      const formData = new FormData();
+      if (formState?.description) {
+        formData.append("description", formState.description);
+      }
+      if (formState?.imageUpload) {
+        if (about.imageUpload?.imageKEY) {
+          formData.append("previousImage", about.imageUpload.imageKEY);
+        }
+        formData.append("imageUpload", formState.imageUpload);
+      }
+      const response = await fetch(`/api/dashboard/about/${about?.id}`, {
+        method: "PATCH",
+        body: formData,
+      });
+      if (response.status !== 200) {
+        throw new Error(`${response.status}`);
+      }
+      setIsLoading(false);
+      setFormState(
+        {} as Pick<About, "id" | "description"> & { imageUpload: File }
+      );
+      toast.success("Profile updated successfully");
+      router.refresh();
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("Message failed to update the profile");
+      console.log(error);
     }
-
-    const prisma = new PrismaClient();
-    await prisma.about.update({
-      where: {
-        id: about?.id,
-      },
-      data: {
-        description: formData.get("description")?.toString(),
-        imageUrl: imageURL,
-      },
-    });
-    revalidatePath("/");
   };
 
   return (
@@ -55,32 +107,41 @@ export default async function AboutPageDashboard() {
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl">
         About Page
       </p>
-      <form
-        action={handleFormUpdate}
-        className="grid grid-cols-2 row-auto gap-4"
-      >
+      <form onSubmit={handleSubmit} className="grid grid-cols-2 row-auto gap-4">
         <label>Description</label>
         <textarea
           name="description"
           defaultValue={about?.description}
-          required
-          className="h-28 p-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200 resize-none"
+          onChange={handleChange("description", about?.id)}
+          disabled={isLoading}
+          className="h-28 p-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500 resize-none"
         ></textarea>
         <label>Change Image</label>
-        <input type="file" name="imageURL" accept="image/*" required />
+        <input
+          type="file"
+          name="imageURL"
+          accept="image/*"
+          onChange={handleChange("imageUpload", about?.id)}
+          disabled={isLoading}
+          className="disabled:text-slate-500"
+        />
         <Link
-          href={about?.imageUrl}
+          href={about?.imageUpload?.imageURL}
           target="_blank"
-          className="col-start-2 col-end-3 text-blue-500 underline"
+          className="col-start-2 col-end-3 text-blue-500 underline text-ellipsis overflow-hidden"
         >
-          {about?.imageUrl}
+          {about?.imageUpload?.imageURL}
         </Link>
-        <button
-          type="submit"
-          className="w-fit border rounded-lg border-red-#ff044c px-6 py-1 col-start-1 col-end-3 justify-self-center"
-        >
-          Update
-        </button>
+        {formState?.id && (
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-fit border rounded-lg border-red-#ff044c px-6 py-2 col-start-1 col-end-3 justify-self-center flex gap-2"
+          >
+            {isLoading && <CgSpinner className="w-6 h-6 animate-spin" />}
+            {isLoading ? "Updating..." : "Update"}
+          </button>
+        )}
       </form>
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl col-start-1 col-end-3">
         Skills

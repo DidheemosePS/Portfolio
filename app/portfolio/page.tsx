@@ -26,8 +26,11 @@ export default async function Portfolio() {
     id: string;
     title: string;
     description: string;
-    imageUrl: string;
     link: string;
+    imageUpload: {
+      imageKEY: string;
+      imageURL: string;
+    };
   }
 
   const data = (await getPortfolioData()) as Data[];
@@ -45,7 +48,7 @@ export default async function Portfolio() {
               className="w-full h-96 rounded-lg relative overflow-hidden group/works"
             >
               <Image
-                src={element?.imageUrl}
+                src={element?.imageUpload?.imageURL}
                 alt="Image"
                 width={100}
                 height={100}

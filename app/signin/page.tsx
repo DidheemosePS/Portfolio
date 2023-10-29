@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
 import { CgSpinner } from "react-icons/cg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 export default function SignIn() {
+  const router = useRouter();
   const initialFormState = {
     email: "",
     password: "",
@@ -27,15 +29,22 @@ export default function SignIn() {
     try {
       e.preventDefault();
       setIsLoading(true);
-      await signIn("credentials", {
+      const response = await signIn("credentials", {
         email: formState.email,
         password: formState.password,
-        callbackUrl: "/dashboard",
+        redirect: false,
       });
+      if (response?.error) {
+        throw new Error(`${response.error}`);
+      }
+      setIsLoading(false);
+      setFormState(initialFormState);
+      toast.success("Login successful");
+      router.push("/dashboard");
+    } catch (error) {
       setFormState(initialFormState);
       setIsLoading(false);
-      toast.success("Login successful");
-    } catch (error) {
+      toast.error("Incorrect login credentials");
       console.log(error);
     }
   };

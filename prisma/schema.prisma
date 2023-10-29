@@ -7,13 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type ImageUpload {
+  imageKEY String
+  imageURL String
+}
+
+type ResumeUpload {
+  resumeKEY String
+  resumeURL String
+}
+
 model about {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   description String
   skills      skills[]
   experience  experience[]
   education   education[]
-  imageUrl    String
+  imageUpload ImageUpload
 }
 
 model skills {
@@ -41,28 +51,28 @@ model education {
 }
 
 model contact {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
   mail          String
   phone         String
   facebookLink  String
-  twitterLink   String
+  xLink   String
   instagramLink String
   linkedinLink  String
-  resumeUrl     String
+  resumeUpload  ResumeUpload
 }
 
 model home {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  role     String
-  country  String
-  imageUrl String
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  country     String
+  imageUpload ImageUpload
+  name        String
+  role        String
 }
 
 model portfolio {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   description String
-  imageUrl    String
+  imageUpload ImageUpload
   link        String
   title       String
 }

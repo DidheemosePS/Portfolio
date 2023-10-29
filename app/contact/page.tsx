@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
+import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import HandleContactPage from "@/components/handleContactPage";
 import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
@@ -48,7 +49,7 @@ export default async function Contact() {
               <BsFacebook />
             </Link>
             <Link href={data?.twitterLink} target="_blank">
-              <BsTwitter />
+              <FaXTwitter />
             </Link>
             <Link href={data?.instagramLink} target="_blank">
               <BsInstagram />

@@ -4,134 +4,108 @@ import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 interface SkillsFormState {
-  id: string;
   title: string;
   skill: string;
 }
 
-export const handleSkillsSubmit = async (formState: SkillsFormState) => {
+export const handleSkillsSubmit = async (
+  id: string,
+  formState: Partial<SkillsFormState>
+) => {
   try {
-    const newFormState: Partial<Pick<SkillsFormState, "title" | "skill">> = {};
-
-    if (formState.title !== "") {
-      newFormState.title = formState.title;
-    }
-
-    if (formState.skill !== "") {
-      newFormState.skill = formState.skill;
-    }
-
     const prisma = new PrismaClient();
-    await prisma.skills.update({
+    const response = await prisma.skills.update({
       where: {
-        id: formState?.id,
+        id,
       },
-      data: newFormState,
+      data: formState,
     });
-
+    if (!response) {
+      return { status: 503, statusText: "Service unavailable" };
+    }
     revalidatePath("/");
+    return { status: 200, statusText: "Ok" };
   } catch (error) {
     console.log(error);
   }
 };
 
 interface ExperienceFormState {
-  id: string;
   title: string;
   experience: string;
 }
 
 export const handleExperienceSubmit = async (
-  formState: ExperienceFormState
+  id: string,
+  formState: Partial<ExperienceFormState>
 ) => {
   try {
-    const newFormState: Partial<
-      Pick<ExperienceFormState, "title" | "experience">
-    > = {};
-
-    if (formState.title !== "") {
-      newFormState.title = formState.title;
-    }
-
-    if (formState.experience !== "") {
-      newFormState.experience = formState.experience;
-    }
-
     const prisma = new PrismaClient();
-    await prisma.experience.update({
+    const response = await prisma.experience.update({
       where: {
-        id: formState?.id,
+        id,
       },
-      data: newFormState,
+      data: formState,
     });
-
+    if (!response) {
+      return { status: 503, statusText: "Service unavailable" };
+    }
     revalidatePath("/");
+    return { status: 200, statusText: "Ok" };
   } catch (error) {
     console.log(error);
   }
 };
 
 interface EducationFormState {
-  id: string;
   title: string;
   education: string;
 }
 
-export const handleEducationSubmit = async (formState: EducationFormState) => {
+export const handleEducationSubmit = async (
+  id: string,
+  formState: Partial<EducationFormState>
+) => {
   try {
-    const newFormState: Partial<
-      Pick<EducationFormState, "title" | "education">
-    > = {};
-
-    if (formState.title !== "") {
-      newFormState.title = formState.title;
-    }
-
-    if (formState.education !== "") {
-      newFormState.education = formState.education;
-    }
-
     const prisma = new PrismaClient();
-    await prisma.education.update({
+    const response = await prisma.education.update({
       where: {
-        id: formState?.id,
+        id,
       },
-      data: newFormState,
+      data: formState,
     });
-
+    if (!response) {
+      return { status: 503, statusText: "Service unavailable" };
+    }
     revalidatePath("/");
+    return { status: 200, statusText: "Ok" };
   } catch (error) {
     console.log(error);
   }
 };
 
-interface DescriptionFormState {
-  id: string;
+interface ServicesFormState {
   title: string;
   description: string;
 }
 
-export const handleServicesSubmit = async (formState: DescriptionFormState) => {
+export const handleServicesSubmit = async (
+  id: string,
+  formState: Partial<ServicesFormState>
+) => {
   try {
-    const newFormState: { title?: string; description?: string } = {};
-
-    if (formState.title !== "") {
-      newFormState.title = formState.title;
-    }
-
-    if (formState.description !== "") {
-      newFormState.description = formState.description;
-    }
-
     const prisma = new PrismaClient();
-    await prisma.services.update({
+    const response = await prisma.services.update({
       where: {
-        id: formState?.id,
+        id,
       },
-      data: newFormState,
+      data: formState,
     });
-
+    if (!response) {
+      return { status: 503, statusText: "Service unavailable" };
+    }
     revalidatePath("/");
+    return { status: 200, statusText: "Ok" };
   } catch (error) {
     console.log(error);
   }
