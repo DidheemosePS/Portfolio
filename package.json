@@ -38,5 +38,10 @@
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.3",
     "prisma": "^5.3.1"
+  },
+  "overrides": {
+    "next-auth": {
+      "next": "13.0.0"
+    }
   }
 }
