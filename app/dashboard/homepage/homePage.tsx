@@ -1,46 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "sonner";
 import { CgSpinner } from "react-icons/cg";
 import { signOut } from "next-auth/react";
+import { handleHomeSubmit } from "./serverAction";
 
 interface Home {
   id: string;
   role: string;
   name: string;
   country: string;
-  imageUpload: {
+  image: {
     imageKEY: string;
     imageURL: string;
   };
 }
 
 export default function HomePageDashboard({ home }: { home: Home }) {
+  const formRef = useRef<HTMLFormElement | null>(null);
   const router = useRouter();
   const [formState, setFormState] = useState(
-    {} as Omit<Home, "imageUpload"> & { imageUpload: File }
+    {} as Omit<Home, "image"> & { image: File }
   );
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange =
     (field: string, id: string) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (field === "imageUpload" && event.target.files) {
+      if (field === "image" && event.target.files) {
         const file = event.target.files[0];
         setFormState((prevFormState) => ({
-          ...(prevFormState as Omit<Home, "imageUpload"> & {
-            imageUpload: File;
+          ...(prevFormState as Omit<Home, "image"> & {
+            image: File;
           }),
           [field]: file,
           id,
         }));
       } else {
         setFormState((prevFormState) => ({
-          ...(prevFormState as Omit<Home, "imageUpload"> & {
-            imageUpload: File;
+          ...(prevFormState as Omit<Home, "image"> & {
+            image: File;
           }),
           [field]: event.target.value,
           id,
@@ -54,33 +56,46 @@ export default function HomePageDashboard({ home }: { home: Home }) {
     try {
       event.preventDefault();
       setIsLoading(true);
+      const newFormState: Partial<Omit<Home, "id">> = {};
       const formData = new FormData();
       if (formState?.role) {
-        formData.append("role", formState.role);
+        newFormState.role = formState.role;
       }
       if (formState?.name) {
-        formData.append("name", formState.name);
+        newFormState.name = formState.name;
       }
       if (formState?.country) {
-        formData.append("country", formState.country);
+        newFormState.country = formState.country;
       }
-      if (formState?.imageUpload) {
-        if (home.imageUpload.imageKEY) {
-          formData.append("previousImage", home.imageUpload?.imageKEY);
+      if (formState?.image) {
+        formData.append("upload", formState.image);
+        const response = await fetch("/api/uploadthing", {
+          method: "POST",
+          body: formData,
+        });
+        if (response.status !== 200) {
+          throw new Error(`${response.status}`);
         }
-        formData.append("imageUpload", formState.imageUpload);
+        const { data }: { data: { key: string; url: string } } =
+          await response.json();
+        if (data) {
+          newFormState.image = { imageKEY: "", imageURL: "" };
+          newFormState.image.imageKEY = data.key;
+          newFormState.image.imageURL = data.url;
+        }
       }
-      const response = await fetch(`/api/dashboard/home/${home?.id}`, {
-        method: "PATCH",
-        body: formData,
-      });
-      if (response.status !== 200) {
-        throw new Error(`${response.status}`);
+      const serverAction = await handleHomeSubmit(
+        formState.id,
+        home.image.imageKEY,
+        newFormState
+      );
+      if (serverAction.status !== 200) {
+        throw new Error(`${serverAction.status}`);
       }
       setIsLoading(false);
-      setFormState({} as Omit<Home, "imageUpload"> & { imageUpload: File });
+      setFormState({} as Omit<Home, "image"> & { image: File });
+      formRef.current!.reset();
       toast.success("Profile updated successfully");
-      router.refresh();
     } catch (error) {
       setIsLoading(false);
       toast.error("Message failed to update the profile");
@@ -104,7 +119,11 @@ export default function HomePageDashboard({ home }: { home: Home }) {
       <p className="text-center text-2xl font-bold my-4 bg-box-color">
         Home Page
       </p>
-      <form onSubmit={handleSubmit} className="grid grid-cols-2 row-auto gap-4">
+      <form
+        onSubmit={handleSubmit}
+        ref={formRef as React.RefObject<HTMLFormElement>}
+        className="grid grid-cols-2 row-auto gap-4"
+      >
         <label>Job Role</label>
         <input
           type="text"
@@ -135,18 +154,18 @@ export default function HomePageDashboard({ home }: { home: Home }) {
         <label>Change Image</label>
         <input
           type="file"
-          name="imageUpload"
+          name="image"
           accept="image/*"
-          onChange={handleChange("imageUpload", home?.id)}
+          onChange={handleChange("image", home?.id)}
           disabled={isLoading}
           className="disabled:text-slate-500"
         />
         <Link
-          href={home?.imageUpload?.imageURL}
+          href={home?.image?.imageURL}
           target="_blank"
           className="col-start-2 col-end-3 text-blue-500 underline text-ellipsis overflow-hidden"
         >
-          {home?.imageUpload?.imageURL}
+          {home?.image?.imageURL}
         </Link>
         {formState?.id && (
           <button

@@ -14,7 +14,7 @@ const getHomeData = async () => {
 };
 
 export default async function Home() {
-  interface ImageUpload {
+  interface Image {
     imageKEY: string;
     imageURL: string;
   }
@@ -24,7 +24,7 @@ export default async function Home() {
     name: string;
     role: string;
     country: string;
-    imageUpload: ImageUpload;
+    image: Image;
   }
   const [data] = (await getHomeData()) as Data[];
 
@@ -42,7 +42,7 @@ export default async function Home() {
       </div>
       <div className="w-full h-[calc(100vh-3rem)] absolute -right-32 -z-10 pt-5 sm:w-2/4 sm:right-0">
         <Image
-          src={data?.imageUpload.imageURL}
+          src={data?.image.imageURL}
           alt="Image"
           width={100}
           height={100}

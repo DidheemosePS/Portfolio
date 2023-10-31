@@ -27,10 +27,13 @@ export default async function Contact() {
     mail: string;
     phone: string;
     facebookLink: string;
-    twitterLink: string;
+    xLink: string;
     instagramLink: string;
     linkedinLink: string;
-    resumeUrl: string;
+    resume: {
+      resumeKEY: string;
+      resumeURL: string;
+    };
   }
 
   const [data] = (await getContactData()) as Data[];
@@ -48,7 +51,7 @@ export default async function Contact() {
             <Link href={data?.facebookLink} target="_blank">
               <BsFacebook />
             </Link>
-            <Link href={data?.twitterLink} target="_blank">
+            <Link href={data?.xLink} target="_blank">
               <FaXTwitter />
             </Link>
             <Link href={data?.instagramLink} target="_blank">
@@ -59,7 +62,7 @@ export default async function Contact() {
             </Link>
           </div>
           <Link
-            href={data?.resumeUrl}
+            href={data?.resume?.resumeURL}
             target="_blank"
             className="w-fit border rounded-lg border-red-#ff044c px-6 py-2"
           >

@@ -67,7 +67,7 @@ export default function SignIn() {
           onChange={handleChange("email")}
           required
           disabled={isLoading}
-          className="w-full h-[2.5rem] px-2 border border-box-color dark:border-white text-box-color dark:text-white dark:bg-box-color rounded-md focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
+          className="w-full h-8 px-2 border border-box-color dark:border-white text-box-color dark:text-white dark:bg-box-color rounded-md focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500"
         />
         <label className="mt-5 mb-1 text-box-color dark:text-white">
           Password
@@ -78,19 +78,19 @@ export default function SignIn() {
           onChange={handleChange("password")}
           required
           disabled={isLoading}
-          className="w-full h-[2.5rem] px-2 border border-box-color dark:border-white text-box-color dark:text-white dark:bg-box-color rounded-md focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-200"
+          className="w-full h-8 px-2 border border-box-color dark:border-white text-box-color dark:text-white dark:bg-box-color rounded-md focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500"
         />
         {formState.password && (
           <>
             {showPassword === "password" && (
               <AiFillEyeInvisible
-                className="absolute top-[13.55rem] left-80 text-box-color dark:text-white"
+                className="absolute top-[12.8rem] left-80 text-box-color dark:text-white"
                 onClick={() => setShowPassword("text")}
               />
             )}
             {showPassword === "text" && (
               <AiFillEye
-                className="absolute top-[13.55rem] left-80 text-box-color dark:text-white"
+                className="absolute top-[12.8rem] left-80 text-box-color dark:text-white"
                 onClick={() => setShowPassword("password")}
               />
             )}

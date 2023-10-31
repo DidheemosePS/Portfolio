@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import { toast } from "sonner";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import Skills from "./skills";
 import Experience from "./experience";
 import Education from "./education";
+import { handleAboutSubmit } from "./serverAction";
 
 interface About {
   id: string;
   description: string;
-  imageUpload: {
+  image: {
     imageKEY: string;
     imageURL: string;
   };
@@ -37,20 +37,20 @@ interface About {
 }
 
 export default function AboutPageDashboard({ about }: { about: About }) {
-  const router = useRouter();
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formState, setFormState] = useState(
-    {} as Pick<About, "id" | "description"> & { imageUpload: File }
+    {} as Pick<About, "id" | "description"> & { image: File }
   );
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange =
     (field: string, id: string) =>
     (event: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) => {
-      if (field === "imageUpload" && event.target.files) {
+      if (field === "image" && event.target.files) {
         const file = event.target.files[0];
         setFormState((prevFormState) => ({
           ...(prevFormState as Pick<About, "id" | "description"> & {
-            imageUpload: File;
+            image: File;
           }),
           [field]: file,
           id,
@@ -58,7 +58,7 @@ export default function AboutPageDashboard({ about }: { about: About }) {
       } else {
         setFormState((prevFormState) => ({
           ...(prevFormState as Pick<About, "id" | "description"> & {
-            imageUpload: File;
+            image: File;
           }),
           [field]: event.target.value,
           id,
@@ -72,29 +72,40 @@ export default function AboutPageDashboard({ about }: { about: About }) {
     try {
       event.preventDefault();
       setIsLoading(true);
+      const newFormState: Partial<Pick<About, "description" | "image">> = {};
       const formData = new FormData();
       if (formState?.description) {
-        formData.append("description", formState.description);
+        newFormState.description = formState.description;
       }
-      if (formState?.imageUpload) {
-        if (about.imageUpload?.imageKEY) {
-          formData.append("previousImage", about.imageUpload.imageKEY);
+      if (formState?.image) {
+        formData.append("upload", formState.image);
+        const response = await fetch("/api/uploadthing", {
+          method: "POST",
+          body: formData,
+        });
+        if (response.status !== 200) {
+          throw new Error(`${response.status}`);
         }
-        formData.append("imageUpload", formState.imageUpload);
+        const { data }: { data: { key: string; url: string } } =
+          await response.json();
+        if (data) {
+          newFormState.image = { imageKEY: "", imageURL: "" };
+          newFormState.image.imageKEY = data.key;
+          newFormState.image.imageURL = data.url;
+        }
       }
-      const response = await fetch(`/api/dashboard/about/${about?.id}`, {
-        method: "PATCH",
-        body: formData,
-      });
-      if (response.status !== 200) {
-        throw new Error(`${response.status}`);
+      const serverAction = await handleAboutSubmit(
+        formState.id,
+        about.image.imageKEY,
+        newFormState
+      );
+      if (serverAction.status !== 200) {
+        throw new Error(`${serverAction.status}`);
       }
       setIsLoading(false);
-      setFormState(
-        {} as Pick<About, "id" | "description"> & { imageUpload: File }
-      );
+      setFormState({} as Pick<About, "id" | "description"> & { image: File });
+      formRef.current!.reset();
       toast.success("Profile updated successfully");
-      router.refresh();
     } catch (error) {
       setIsLoading(false);
       toast.error("Message failed to update the profile");
@@ -103,11 +114,15 @@ export default function AboutPageDashboard({ about }: { about: About }) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col">
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl">
         About Page
       </p>
-      <form onSubmit={handleSubmit} className="grid grid-cols-2 row-auto gap-4">
+      <form
+        onSubmit={handleSubmit}
+        ref={formRef as React.RefObject<HTMLFormElement>}
+        className="grid grid-cols-2 row-auto gap-4"
+      >
         <label>Description</label>
         <textarea
           name="description"
@@ -121,16 +136,16 @@ export default function AboutPageDashboard({ about }: { about: About }) {
           type="file"
           name="imageURL"
           accept="image/*"
-          onChange={handleChange("imageUpload", about?.id)}
+          onChange={handleChange("image", about?.id)}
           disabled={isLoading}
           className="disabled:text-slate-500"
         />
         <Link
-          href={about?.imageUpload?.imageURL}
+          href={about?.image?.imageURL}
           target="_blank"
           className="col-start-2 col-end-3 text-blue-500 underline text-ellipsis overflow-hidden"
         >
-          {about?.imageUpload?.imageURL}
+          {about?.image?.imageURL}
         </Link>
         {formState?.id && (
           <button
@@ -146,15 +161,15 @@ export default function AboutPageDashboard({ about }: { about: About }) {
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl col-start-1 col-end-3">
         Skills
       </p>
-      <Skills skills={about?.skills} />
+      <Skills skills={about?.skills} aboutId={about?.id} />
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl col-start-1 col-end-3">
         Experience
       </p>
-      <Experience experience={about?.experience} />
+      <Experience experience={about?.experience} aboutId={about?.id} />
       <p className="text-center text-2xl font-bold my-4 bg-box-color md:text-3xl lg:text-4xl col-start-1 col-end-3">
         Education
       </p>
-      <Education education={about.education} />
+      <Education education={about.education} aboutId={about?.id} />
     </div>
   );
 }

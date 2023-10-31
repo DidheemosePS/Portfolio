@@ -54,7 +54,10 @@ export default async function About() {
   interface Data {
     id: string;
     description: string;
-    imageUrl: string;
+    image: {
+      imageKEY: string;
+      imageURL: string;
+    };
     skills: Skills[];
     experience: Experience[];
     education: Education[];
@@ -65,7 +68,7 @@ export default async function About() {
     <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
       <div className="w-full max-w-xs h-80 rounded-lg sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
         <Image
-          src={data?.imageUrl}
+          src={data?.image?.imageURL}
           alt="Image"
           width={100}
           height={100}

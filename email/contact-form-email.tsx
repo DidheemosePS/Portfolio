@@ -24,7 +24,7 @@ export const ContactFormEmail = ({
       <Head>
         <title>A message from your portfolio</title>
       </Head>
-      <Preview>Read {authorName}'s message</Preview>
+      {/* <Preview>Read {authorName}'s message</Preview> */}
       <Tailwind>
         <Body>
           <Section>

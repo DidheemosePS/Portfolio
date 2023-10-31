@@ -1,14 +1,14 @@
 import { PrismaClient } from "@prisma/client";
-import HomePageDashBoard from "./homePage";
-import AboutPageDashboard from "./aboutPage";
-import ServicesPageDashboard from "./servicesPage";
-import PortfolioPageDashboard from "./portfolio";
-import ContactPageDashboard from "./contactPage";
+import HomePageDashBoard from "./homepage/homePage";
+import AboutPageDashboard from "./aboutPage/aboutPage";
+import ServicesPageDashboard from "./servicesPage/servicesPage";
+import PortfolioPageDashboard from "./portfolioPage/portfolio";
+import ContactPageDashboard from "./contactPage/contactPage";
 
 interface About {
   id: string;
   description: string;
-  imageUpload: {
+  image: {
     imageKEY: string;
     imageURL: string;
   };
