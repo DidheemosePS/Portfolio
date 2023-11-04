@@ -6,7 +6,7 @@ import Works from "./works/page";
 
 export default function Page() {
   return (
-    <main className="m-auto min-w-[300px] h-[calc(100dvh-3.5rem)] overflow-y-scroll snap-y">
+    <main className="m-auto min-w-[300px] min-h-[calc(100svh-3.5rem)]">
       <Home />
       <Skills />
       <Works />
