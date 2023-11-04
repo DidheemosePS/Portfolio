@@ -25,27 +25,8 @@ export default function HandleContactPage() {
   const handleContactSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    // try {
     event.preventDefault();
     toast.success("Currently this feature is not available");
-    //   setIsLoading(true);
-    //   const response = await fetch("/api/send", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formState),
-    //   });
-    //   if (response.status === 200) {
-    //     toast.success("Message sent successfully");
-    //   }
-    //   setFormState(initialFormState);
-    //   setIsLoading(false);
-    // } catch (error) {
-    //   setIsLoading(false);
-    //   toast.error("Message failed to be sent");
-    //   console.log(error);
-    // }
   };
 
   return (

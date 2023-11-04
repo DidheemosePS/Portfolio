@@ -72,7 +72,7 @@ const data: Data[] = [
   },
 ];
 
-export default async function About() {
+export default async function Skills() {
   return (
     <div className="w-full min-h-full h-fit p-5 text-center snap-start">
       <p className="text-2xl font-semibold text-gray-400">My Skills</p>

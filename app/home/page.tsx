@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
-import { AiOutlineDownload } from "react-icons/ai";
 
 export default async function Home() {
   interface Data {

@@ -1,7 +1,4 @@
-import Image from "next/image";
 import { Metadata } from "next";
-import { PrismaClient } from "@prisma/client";
-import Link from "next/link";
 import LineComponent from "@/components/lineComponent";
 
 export const metadata: Metadata = {
@@ -29,7 +26,7 @@ const educationData = [
   },
 ];
 
-export default async function Services() {
+export default async function Resume() {
   return (
     <div className="w-full min-h-full h-fit p-5 snap-start">
       <p className="text-2xl font-semibold text-gray-400 text-center">Resume</p>

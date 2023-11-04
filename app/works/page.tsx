@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import { PrismaClient } from "@prisma/client";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -18,7 +17,7 @@ const data = [
   },
 ];
 
-export default async function Portfolio() {
+export default async function Works() {
   return (
     <div className="w-full min-h-full h-fit p-5 snap-start">
       <p className="text-2xl font-semibold text-gray-400 text-center">
