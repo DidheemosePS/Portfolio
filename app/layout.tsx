@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import SonnerProvider from "./sonner-provider";
 import Navigation from "./components/navigation";
-import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,8 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} h-[-webkit-fill-available]`}>
         <SonnerProvider>
           <Navigation />
-          <main className="m-auto min-w-[300px]">{children}</main>
-          <Footer />
+          {children}
         </SonnerProvider>
       </body>
     </html>

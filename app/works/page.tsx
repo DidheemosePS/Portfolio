@@ -19,7 +19,7 @@ const data = [
 
 export default function Works() {
   return (
-    <div className="p-5 sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem]">
+    <div className="min-h-full p-5 sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem] snap-start">
       <p className="text-2xl font-semibold text-gray-400 text-center">
         My Works
       </p>

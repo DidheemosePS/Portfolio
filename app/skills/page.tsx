@@ -74,7 +74,7 @@ const data: Data[] = [
 
 export default function Skills() {
   return (
-    <div className="p-5 text-center sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem]">
+    <div className="min-h-full p-5 text-center sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem] snap-start">
       <p className="text-2xl font-semibold text-gray-400">My Skills</p>
       <p className="text-sm font-semibold text-black mb-6 md:mb-12">
         Here are my skills

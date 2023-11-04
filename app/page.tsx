@@ -6,12 +6,12 @@ import Works from "./works/page";
 
 export default function Page() {
   return (
-    <>
+    <main className="m-auto min-w-[300px] h-[calc(100dvh-3.5rem)] overflow-y-scroll snap-y">
       <Home />
       <Skills />
       <Works />
       <Resume />
       <Contact />
-    </>
+    </main>
   );
 }

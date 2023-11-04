@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#37ff80bf] to-blue-400 grid row-auto grid-cols-1 gap-6 p-5 sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem] md:grid-cols-2 md:gap-8">
+    <div className="min-h-full bg-gradient-to-r from-[#37ff80bf] to-blue-400 grid row-auto grid-cols-1 gap-6 p-5 sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem] md:grid-cols-2 md:gap-8 snap-start">
       <div className="flex flex-col gap-3 row-start-2 row-end-3 md:self-center md:row-start-1 md:row-end-2">
         <p className="text-2xl font-bold">Hello, I'm {data?.name}</p>
         <p className="text-xl font-bold text-yellow-500">{data?.role}</p>
