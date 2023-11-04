@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-[-webkit-fill-available]">
-      <body className={`${inter.className} h-[-webkit-fill-available]`}>
+    <html lang="en">
+      <body className={`${inter.className}`}>
         <SonnerProvider>
           <Navigation />
           {children}

@@ -6,7 +6,7 @@ import Works from "./works/page";
 
 export default function Page() {
   return (
-    <main className="m-auto min-w-[300px] min-h-[calc(100svh-3.5rem)]">
+    <main className="m-auto min-w-[300px] min-h-[100dvh]">
       <Home />
       <Skills />
       <Works />
