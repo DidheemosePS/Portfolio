@@ -1,92 +1,108 @@
 import { Metadata } from "next";
-import Image from "next/image";
-import AboutButtons from "@/components/aboutButtons";
-import Skills from "@/components/skills";
-import Experience from "@/components/experience";
-import Education from "@/components/education";
-import { PrismaClient } from "@prisma/client";
+import { ReactElement } from "react";
+import { AiFillHtml5 } from "react-icons/ai";
+import {
+  BiLogoJavascript,
+  BiLogoMongodb,
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiSolidFileCss,
+} from "react-icons/bi";
+import { SiNextdotjs } from "react-icons/si";
 
 export const metadata: Metadata = {
   title: "About",
   description: "About",
 };
 
-export const revalidate = 5;
+interface Style {
+  style1: string;
+  style2: string;
+  style3: string;
+}
 
-const getAboutData = async () => {
-  try {
-    const prisma = new PrismaClient();
-    const response = await prisma.about.findMany({
-      include: {
-        skills: true,
-        experience: true,
-        education: true,
-      },
-    });
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
+const styleForOdd: Style = {
+  style1:
+    "bg-white rounded-lg shadow-[0px_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col justify-center items-center gap-2 p-5 hover:transition hover:duration-300 hover:ease-in-out hover:scale-110",
+  style2:
+    "w-10 h-10 bg-black rounded-full flex justify-center items-center text-white",
+  style3: "text-xs font-semibold",
+};
+const styleForEven = {
+  style1:
+    "bg-black rounded-lg shadow-[0px_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col justify-center items-center gap-2 p-5 hover:transition hover:duration-300 hover:ease-in-out hover:scale-110",
+  style2:
+    "w-10 h-10 bg-white rounded-full flex justify-center items-center text-black",
+  style3: "text-xs font-semibold text-white",
 };
 
+interface Data {
+  icon: ReactElement<{ size: number }>;
+  skill: string;
+}
+
+const data: Data[] = [
+  {
+    icon: <AiFillHtml5 size={30} />,
+    skill: "HTML",
+  },
+  {
+    icon: <BiSolidFileCss size={30} />,
+    skill: "CSS",
+  },
+  {
+    icon: <BiLogoTailwindCss size={30} />,
+    skill: "Tailwind CSS",
+  },
+  {
+    icon: <BiLogoJavascript size={30} />,
+    skill: "JavaScript",
+  },
+  {
+    icon: <BiLogoReact size={30} />,
+    skill: "React JS",
+  },
+  {
+    icon: <SiNextdotjs size={30} />,
+    skill: "Next JS",
+  },
+  {
+    icon: <BiLogoMongodb size={30} />,
+    skill: "MongoDB",
+  },
+];
+
 export default async function About() {
-  interface Skills {
-    id: string;
-    title: string;
-    skill: string;
-    aboutId: string;
-  }
-
-  interface Experience {
-    id: string;
-    title: string;
-    experience: string;
-    aboutId: string;
-  }
-
-  interface Education {
-    id: string;
-    title: string;
-    education: string;
-    aboutId: string;
-  }
-
-  interface Data {
-    id: string;
-    description: string;
-    image: {
-      imageKEY: string;
-      imageURL: string;
-    };
-    skills: Skills[];
-    experience: Experience[];
-    education: Education[];
-  }
-  const [data] = (await getAboutData()) as Data[];
-
   return (
-    <div className="w-full h-fit min-h-[calc(100vh-3rem)] flex flex-col items-center gap-5 py-5 lg:flex-row">
-      <div className="w-full max-w-xs h-80 rounded-lg sm:max-w-md md:max-w-xl lg:max-w-30 lg:h-25">
-        <Image
-          src={data?.image?.imageURL}
-          alt="Image"
-          width={100}
-          height={100}
-          quality={100}
-          priority={true}
-          className="w-full h-full rounded-lg"
-        />
-      </div>
-      <div className="flex flex-col gap-4 lg:h-25 lg:pt-4">
-        <p className="text-center text-2xl font-bold md:text-3xl lg:text-start lg:text-4xl">
-          About Me
-        </p>
-        <p className="text-justify text-gray-300">{data?.description}</p>
-        <AboutButtons>
-          <Skills skills={data?.skills} />
-          <Experience experience={data?.experience} />
-          <Education education={data?.education} />
-        </AboutButtons>
+    <div className="w-full min-h-full h-fit p-5 text-center snap-start">
+      <p className="text-2xl font-semibold text-gray-400">My Skills</p>
+      <p className="text-sm font-semibold text-black">Here are my skills</p>
+      <div className="grid grid-rows-3 grid-cols-3 gap-6 mt-6">
+        {data?.map((value, index) => {
+          return (
+            <div
+              key={index}
+              className={`${
+                index % 2 === 0 ? styleForEven.style1 : styleForOdd.style1
+              }`}
+            >
+              <div
+                className={`${
+                  index % 2 === 0 ? styleForEven.style2 : styleForOdd.style2
+                }`}
+              >
+                {value?.icon}
+              </div>
+              <p
+                className={`${
+                  index % 2 === 0 ? styleForEven.style3 : styleForOdd.style3
+                }`}
+              >
+                {value?.skill}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

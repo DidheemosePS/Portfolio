@@ -1,10 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import Navigation from "@/components/navigation";
-import NavigationSlider from "./components/navigationSlider";
-import { ReduxProvider } from "@/redux/provider";
 import SonnerProvider from "./sonner-provider";
+import Navigation from "./components/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,17 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.className} w-full h-screen text-slate-900 dark:text-white bg-white dark:bg-dark-theme box-border px-5 relative sm:px-10 lg:px-14 xl:px-28 2xl:px-40`}
-      >
-        <ReduxProvider>
-          <SonnerProvider>
-            <NavigationSlider />
-            <Navigation />
+    <html lang="en" className="h-[-webkit-fill-available]">
+      <body className={`${inter.className} h-[-webkit-fill-available]`}>
+        <SonnerProvider>
+          <Navigation />
+          <main className="m-auto min-w-[300px] max-w-7xl h-[calc(100vh-3.5rem)] snap-y overflow-y-scroll">
             {children}
-          </SonnerProvider>
-        </ReduxProvider>
+          </main>
+        </SonnerProvider>
       </body>
     </html>
   );

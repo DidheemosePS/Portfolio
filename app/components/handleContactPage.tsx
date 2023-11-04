@@ -25,32 +25,33 @@ export default function HandleContactPage() {
   const handleContactSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    try {
-      event.preventDefault();
-      setIsLoading(true);
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      });
-      if (response.status === 200) {
-        toast.success("Message sent successfully");
-      }
-      setFormState(initialFormState);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      toast.error("Message failed to be sent");
-      console.log(error);
-    }
+    // try {
+    event.preventDefault();
+    toast.success("Currently this feature is not available");
+    //   setIsLoading(true);
+    //   const response = await fetch("/api/send", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formState),
+    //   });
+    //   if (response.status === 200) {
+    //     toast.success("Message sent successfully");
+    //   }
+    //   setFormState(initialFormState);
+    //   setIsLoading(false);
+    // } catch (error) {
+    //   setIsLoading(false);
+    //   toast.error("Message failed to be sent");
+    //   console.log(error);
+    // }
   };
 
   return (
     <form
       onSubmit={handleContactSubmit}
-      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-5 pb-5 md:relative md:grid-rows-[2.5rem,2.5rem,8rem] md:self-center md:pb-0"
+      className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-6 px-5"
     >
       <input
         type="text"
@@ -59,7 +60,7 @@ export default function HandleContactPage() {
         onChange={handleChange("authorName")}
         required
         disabled={isLoading}
-        className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500"
+        className="border rounded-lg drop-shadow-lg px-2 placeholder:text-xs font-bold focus:outline-none focus:border-yellow-500"
       />
       <input
         type="email"
@@ -68,7 +69,7 @@ export default function HandleContactPage() {
         onChange={handleChange("email")}
         required
         disabled={isLoading}
-        className="px-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500"
+        className="border rounded-lg drop-shadow-xl px-2 placeholder:text-xs font-bold focus:outline-none focus:border-yellow-500"
       />
       <textarea
         placeholder="Your Message"
@@ -76,20 +77,20 @@ export default function HandleContactPage() {
         onChange={handleChange("message")}
         required
         disabled={isLoading}
-        className="p-2 border border-box-color dark:bg-box-color rounded-md dark:text-white text-box-color placeholder:text-sm placeholder:text-slate-500 focus:outline-none focus:border-blue-500 disabled:text-slate-500 disabled:border-slate-500 resize-none"
-      ></textarea>
+        className="border rounded-lg drop-shadow-xl p-2 resize-none placeholder:text-xs font-bold focus:outline-none focus:border-yellow-500"
+      />
       <button
         type="submit"
         disabled={isLoading}
-        className="w-fit h-fit border rounded-lg flex gap-2 border-red-#ff044c pl-4 pr-6 py-2 justify-self-center md:absolute md:left-0 md:-bottom-16"
+        className="w-full h-fit bg-yellow-500 rounded-lg flex gap-2 pl-4 pr-6 py-2 justify-center items-center text-white"
       >
         {isLoading && <CgSpinner className="w-6 h-6 animate-spin" />}
         {isLoading ? (
-          "Sending..."
+          <p className="text-sm font-bold">Sending...</p>
         ) : (
           <>
             <IoIosSend className="w-6 h-6" />
-            Send
+            <p className="text-sm font-bold">Send</p>
           </>
         )}
       </button>
