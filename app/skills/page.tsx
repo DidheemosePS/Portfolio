@@ -72,12 +72,14 @@ const data: Data[] = [
   },
 ];
 
-export default async function Skills() {
+export default function Skills() {
   return (
-    <div className="w-full min-h-full h-fit p-5 text-center snap-start">
+    <div className="p-5 text-center sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem]">
       <p className="text-2xl font-semibold text-gray-400">My Skills</p>
-      <p className="text-sm font-semibold text-black">Here are my skills</p>
-      <div className="grid grid-rows-3 grid-cols-3 gap-6 mt-6">
+      <p className="text-sm font-semibold text-black mb-6 md:mb-12">
+        Here are my skills
+      </p>
+      <div className="grid row-auto grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:gap-8">
         {data?.map((value, index) => {
           return (
             <div

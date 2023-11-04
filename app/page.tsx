@@ -4,7 +4,7 @@ import Skills from "./skills/page";
 import Resume from "./resume/page";
 import Works from "./works/page";
 
-export default async function Page() {
+export default function Page() {
   return (
     <>
       <Home />

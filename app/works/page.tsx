@@ -17,16 +17,16 @@ const data = [
   },
 ];
 
-export default async function Works() {
+export default function Works() {
   return (
-    <div className="w-full min-h-full h-fit p-5 snap-start">
+    <div className="p-5 sm:px-10 md:pt-12 md:pb-[6.5rem] md:px-14 lg:px-[4.5rem] xl:px-[5.5rem] 2xl:px-[6.5rem]">
       <p className="text-2xl font-semibold text-gray-400 text-center">
         My Works
       </p>
-      <p className="text-sm font-semibold text-black text-center">
+      <p className="text-sm font-semibold text-black text-center mb-6 md:mb-12">
         Here are some of my works
       </p>
-      <div className="grid grid-rows-2 grid-cols-1 gap-6 mt-6">
+      <div className="grid row-auto grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 md:gap-8">
         {data?.map((value, index) => {
           return (
             <div key={index}>
