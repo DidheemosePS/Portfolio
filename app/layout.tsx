@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import SonnerProvider from "./sonner-provider";
 import Navigation from "./components/navigation";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <SonnerProvider>
           <Navigation />
           {children}
+          <Footer />
         </SonnerProvider>
       </body>
     </html>

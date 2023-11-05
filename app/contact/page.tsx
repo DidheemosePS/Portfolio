@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import HandleContactPage from "@/components/handleContactPage";
-import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -22,7 +21,6 @@ export default function Contact() {
         </h1>
       </div>
       <HandleContactPage />
-      <Footer />
     </div>
   );
 }
