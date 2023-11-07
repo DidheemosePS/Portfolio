@@ -9,6 +9,8 @@ import {
   BiLogoTailwindCss,
   BiSolidFileCss,
 } from "react-icons/bi";
+import { FaAws, FaNode } from "react-icons/fa6";
+import { TbApi } from "react-icons/tb";
 import { SiNextdotjs } from "react-icons/si";
 import { motion } from "framer-motion";
 
@@ -36,7 +38,7 @@ const styleForEven = {
 
 interface DataOne {
   icon: ReactElement;
-  text: string;
+  skill: string;
   range: number;
 }
 
@@ -49,26 +51,37 @@ export default function Skills() {
   const dataOne: DataOne[] = [
     {
       icon: <AiFillHtml5 />,
-      text: "HTML",
+      skill: "HTML",
       range: 90,
     },
     {
       icon: <BiSolidFileCss />,
-      text: "CSS",
+      skill: "CSS",
       range: 85,
     },
     {
       icon: <BiLogoTailwindCss />,
-      text: "Tailwind CSS",
+      skill: "Tailwind CSS",
       range: 80,
+    },
+    {
+      icon: <BiLogoJavascript size={30} />,
+      skill: "JavaScript",
+      range: 85,
+    },
+    {
+      icon: <FaNode size={30} />,
+      skill: "Node JS",
+      range: 60,
+    },
+    {
+      icon: <TbApi size={30} />,
+      skill: "Rest Api",
+      range: 70,
     },
   ];
 
   const dataTwo: DataTwo[] = [
-    {
-      icon: <BiLogoJavascript size={30} />,
-      skill: "JavaScript",
-    },
     {
       icon: <BiLogoReact size={30} />,
       skill: "React JS",
@@ -80,6 +93,10 @@ export default function Skills() {
     {
       icon: <BiLogoMongodb size={30} />,
       skill: "MongoDB",
+    },
+    {
+      icon: <FaAws size={30} />,
+      skill: "AWS",
     },
   ];
 
@@ -99,7 +116,7 @@ export default function Skills() {
               <div key={index}>
                 <div className="flex gap-[.65rem] items-center mb-1">
                   {value?.icon}
-                  <p className="text-sm font-semibold">{value?.text}</p>
+                  <p className="text-sm font-semibold">{value?.skill}</p>
                 </div>
                 <div className="w-full h-2 bg-gray-300 rounded-xl relative">
                   <motion.div

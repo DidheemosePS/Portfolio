@@ -1,20 +1,38 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import { Fragment } from "react";
+import { AiOutlineLink } from "react-icons/ai";
+import { BsGithub } from "react-icons/bs";
+import { WorksButtons } from "../spare/buttons";
+
+interface Data {
+  image: string;
+  projectName: string;
+  description: string;
+  demo: string;
+  code: string;
+}
 
 export const metadata: Metadata = {
   title: "Services",
   description: "Services",
 };
 
-const data = [
+const data: Data[] = [
   {
-    image: "/portfolio.jpg",
+    image: "/plantIn.png",
     projectName: "PlantIn (MERN Stack)",
+    description:
+      "PlantIn is a platform that mainly focuses on branding people’s work and their innovative ideas.Any finished work that represents the users talent can be published for the world to see.",
+    demo: "https://plantin.plantinapp.me/",
+    code: "https://github.com/DidheemosePS/_PlantIn_.git",
   },
   {
     image: "/portfolio.jpg",
     projectName: "Portfolio (Next JS)",
+    description:
+      "Explore my portfolio—a showcase of my passion and expertise. From design to development, each project tells a unique story. Join me on this journey of creativity and innovation!",
+    demo: "https://didheemose.vercel.app/",
+    code: "https://github.com/DidheemosePS/Portfolio.git",
   },
 ];
 
@@ -33,22 +51,38 @@ export default function Works() {
           return (
             <div
               key={index}
-              className="flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
+              className="w-fit h-[20rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
             >
-              <div className="">
-                <Image
-                  src={value?.image}
-                  alt="Image"
-                  width={100}
-                  height={100}
-                  quality={100}
-                  priority={true}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <Image
+                src={value?.image}
+                alt="Image"
+                width={100}
+                height={100}
+                quality={100}
+                priority={true}
+                className="w-full h-full object-cover"
+              />
               <p className="text-lg font-medium text-gray-800 pb-5">
                 {value?.projectName}
               </p>
+              <div
+                key={index}
+                className="w-full h-full flex flex-col justify-center items-center gap-5 absolute top-0 left-0 p-5 rounded-lg translate-y-full transition duration-500 ease-in-out group-hover/works:translate-y-0 bg-white bg-opacity-[80%]"
+              >
+                <p className="text-lg font-medium">{value?.description}</p>
+                <div className="flex gap-2 md:gap-5">
+                  <WorksButtons
+                    icon={<AiOutlineLink size={20} />}
+                    text="Demo"
+                    action={value?.demo}
+                  />
+                  <WorksButtons
+                    icon={<BsGithub size={20} />}
+                    text="Code"
+                    action={value?.code}
+                  />
+                </div>
+              </div>
             </div>
           );
         })}

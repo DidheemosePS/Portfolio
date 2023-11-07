@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 const experienceData = [
   {
-    jobTitle: "Software Developer Intern",
-    companyName: "Drafteq Engineering",
-    fromTo: "May 2023 - Present",
+    jobTitle: "Aspiring Opportunity Explorer",
+    companyName: "Heaven",
+    fromTo: "March 2023 - Present",
     description:
-      "In my current internship at Drafteq Engineering, I'm working as a Full Stack Developer focusing on the frontend development using React JS, where I work on creating interactive and user-friendly interfaces. Additionally, I am responsible for building the backend API using Node.js, Express.js, and MongoDB, enabling data storage and retrieval for the application.",
+      "Aspiring professional ready to embark on a journey of meaningful experiences. While my formal resume may be a blank canvas, my enthusiasm, adaptability, and eagerness to learn make me a valuable asset. I approach each opportunity with a fresh perspective, ready to contribute and grow. Let's create a story of success together!",
   },
 ];
 
@@ -20,9 +20,9 @@ const educationData = [
   {
     qualification: "Batchelor of computer applications",
     collegeName: "Naipunnya Institute",
-    fromTo: "2020 - 2023",
+    fromTo: "June 2020 - March 2023",
     description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat harum ea id quisquam esse eum illo ratione, sequi quos et, aliquam provident necessitatibus magnam incidunt! Officiis repellendus perferendis temporibus.",
+      "As a recent BCA graduate and aspiring web developer with a focus on React JS, I offer advanced problem-solving, efficient time management, and a passion for continual learning. Actively seeking entry-level opportunities in web development, I bring a blend of technical prowess and creative ingenuity. Eager to contribute and make a discernible impact in the dynamic realm of web development.",
   },
 ];
 
@@ -45,15 +45,15 @@ export default function Resume() {
             return (
               <div key={index} className="relative">
                 <LineComponent />
-                <div className="border-2 border-yellow-400 rounded-lg p-3 shadow-md lg:w-[25rem] lg:h-[16.2rem]">
+                <div className="border-2 border-yellow-400 rounded-lg p-3 shadow-md lg:w-[25rem] lg:h-[17.5rem]">
                   <p className="text-xl font-medium">{value?.jobTitle}</p>
-                  <p className="font-semibold text-gray-500 my-1">
+                  <p className="font-semibold text-gray-500 leading-loose">
                     {value?.companyName}
                   </p>
-                  <p className="font-semibold text-yellow-500">
+                  <p className="font-semibold text-yellow-500 leading-loose">
                     {value?.fromTo}
                   </p>
-                  <p className="text-sm text-justify text-gray-500 my-1">
+                  <p className="text-sm text-justify text-gray-500 leading-normal">
                     {value?.description}
                   </p>
                 </div>
@@ -69,15 +69,15 @@ export default function Resume() {
             return (
               <div key={index} className="relative">
                 <LineComponent />
-                <div className="border-2 border-yellow-400 rounded-lg p-3 shadow-md lg:w-[25rem] lg:h-[16.2rem]">
+                <div className="border-2 border-yellow-400 rounded-lg p-3 shadow-md lg:w-[25rem] lg:h-[17.5rem]">
                   <p className="text-xl font-medium">{value?.qualification}</p>
-                  <p className="font-semibold text-gray-500 my-1">
+                  <p className="font-semibold text-gray-500">
                     {value?.collegeName}
                   </p>
-                  <p className="font-semibold text-yellow-500">
+                  <p className="font-semibold text-yellow-500 leading-loose">
                     {value?.fromTo}
                   </p>
-                  <p className="text-sm text-justify text-gray-500 my-1">
+                  <p className="text-sm text-justify text-gray-500 leading-normal">
                     {value?.description}
                   </p>
                 </div>

@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { CgSpinner } from "react-icons/cg";
 import { IoIosSend } from "react-icons/io";
+import { ContactMessage } from "../contact/serverActions";
+
+interface FormState {
+  authorName: string;
+  email: string;
+  message: string;
+}
 
 export default function HandleContactPage() {
   const initialFormState = {
@@ -11,7 +18,8 @@ export default function HandleContactPage() {
     email: "",
     message: "",
   };
-  const [formState, setFormState] = useState(initialFormState);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [formState, setFormState] = useState<FormState>(initialFormState);
   const [isLoading, setIsLoading] = useState(false);
   const handleChange =
     (field: keyof typeof formState) =>
@@ -25,19 +33,33 @@ export default function HandleContactPage() {
   const handleContactSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    event.preventDefault();
-    toast.success("Currently this feature is not available");
+    try {
+      event.preventDefault();
+      setIsLoading((previousState) => !previousState);
+      const response = await ContactMessage(formState);
+      if (response?.status !== 200) {
+        throw new Error(`${response?.status}`);
+      }
+      setIsLoading((previousState) => !previousState);
+      setFormState(initialFormState);
+      formRef.current!.reset();
+      toast.success("Message sent successfully");
+    } catch (error) {
+      setIsLoading((previousState) => !previousState);
+      toast.error("Message failed to send");
+      console.log(error);
+    }
   };
 
   return (
     <form
       onSubmit={handleContactSubmit}
+      ref={formRef as React.RefObject<HTMLFormElement>}
       className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-6"
     >
       <input
         type="text"
         placeholder="Your Name"
-        value={formState.authorName}
         onChange={handleChange("authorName")}
         required
         disabled={isLoading}
@@ -46,7 +68,6 @@ export default function HandleContactPage() {
       <input
         type="email"
         placeholder="Your Email"
-        value={formState.email}
         onChange={handleChange("email")}
         required
         disabled={isLoading}
@@ -54,7 +75,6 @@ export default function HandleContactPage() {
       />
       <textarea
         placeholder="Your Message"
-        value={formState.message}
         onChange={handleChange("message")}
         required
         disabled={isLoading}
