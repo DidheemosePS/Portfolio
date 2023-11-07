@@ -1,11 +1,6 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import SonnerProvider from "./sonner-provider";
-import Navigation from "./components/navigation";
-import Footer from "./components/footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -22,12 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <SonnerProvider>
-          <Navigation />
-          {children}
-          <Footer />
-        </SonnerProvider>
+      <body>
+        <SonnerProvider>{children}</SonnerProvider>
       </body>
     </html>
   );

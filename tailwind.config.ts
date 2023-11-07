@@ -15,9 +15,9 @@ const config: Config = {
       },
       colors: {
         "red-#ff044c": "#ff044c",
-        "hibiscus": "#B43757",
-        "box-color":"#262626",
-        "dark-theme":"#080808"
+        hibiscus: "#B43757",
+        "box-color": "#262626",
+        "dark-theme": "#080808",
       },
       maxWidth: {
         "30": "30rem",
