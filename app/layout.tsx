@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import SonnerProvider from "./sonner-provider";
+import Aos from "./aos";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SonnerProvider>{children}</SonnerProvider>
+        <Aos>
+          <SonnerProvider>{children}</SonnerProvider>
+        </Aos>
       </body>
     </html>
   );

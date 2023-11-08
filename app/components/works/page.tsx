@@ -43,13 +43,14 @@ export default function Works() {
         <h3 className=" text-2xl font-black text-gray-400">Works</h3>
         <span className="h-[1.1px] right-0 absolute w-[90%] bg-gray-300 block"></span>
       </div>
-      <p className="text-[1rem] font-medium text-gray-600">
+      <p data-aos="fade-up" className="text-[1rem] font-medium text-gray-600">
         Here are some of my works.
       </p>
       <div className="flex flex-wrap justify-center items-center gap-10 px-2 py-5 sm:px-4 md:px-8 xl:px-16 lg:gap-14 xl:gap-16 2xl:gap-20">
         {data?.map((value, index) => {
           return (
             <div
+              data-aos="zoom-in"
               key={index}
               className="w-fit h-[20rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
             >

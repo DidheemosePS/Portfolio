@@ -33,11 +33,14 @@ export default function Resume() {
         <h3 className=" text-2xl font-black text-gray-400">Resume</h3>
         <span className="h-[1.1px] right-0 absolute w-[90%] bg-gray-300 block"></span>
       </div>
-      <p className="text-[1rem] font-medium text-gray-600">
+      <p data-aos="fade-up" className="text-[1rem] font-medium text-gray-600">
         Here are my experiences and qualifications.
       </p>
       <div className="flex flex-wrap justify-center items-center gap-10 px-2 py-5 sm:px-4 md:px-8 lg:gap-14 xl:gap-16 xl:px-16 2xl:gap-20">
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div
+          data-aos="zoom-in"
+          className="flex flex-col justify-center items-center gap-5"
+        >
           <div className="border-2 border-gray-300 rounded-full text-yellow-500 px-7 py-1 justify-self-center text-xl font-medium">
             Experience
           </div>
@@ -61,7 +64,10 @@ export default function Resume() {
             );
           })}
         </div>
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div
+          data-aos="zoom-in"
+          className="flex flex-col justify-center items-center gap-5"
+        >
           <div className="border-2 border-gray-300 rounded-full text-yellow-500 px-7 py-1 justify-self-center text-xl font-medium">
             Education
           </div>

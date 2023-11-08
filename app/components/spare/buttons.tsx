@@ -29,17 +29,24 @@ export function FooterButtons({
   text,
   icon,
   action,
+  aos,
 }: {
   text?: string;
   icon?: ReactElement;
   action: string;
+  aos: { style: string; duration: number };
 }) {
   const handleOnSubmit = () => {
     window.open(action);
   };
 
   return (
-    <button onClick={handleOnSubmit} className="flex flex-col items-center">
+    <button
+      data-aos={aos.style}
+      data-aos-duration={aos.duration}
+      onClick={handleOnSubmit}
+      className="flex flex-col items-center"
+    >
       {icon}
       <p className="font-medium text-white">{text}</p>
     </button>

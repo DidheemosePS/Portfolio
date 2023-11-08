@@ -4,23 +4,31 @@ import { FooterButtons } from "../spare/buttons";
 
 export default function Footer() {
   return (
-    <footer className="m-auto min-w-full flex flex-col items-center justify-center gap-6 bg-yellow-500 py-6 mt-6">
-      <p className="font-bold text-2xl lg:text-3xl xl:text-4xl">Let's Talk</p>
+    <footer className="m-auto min-w-full h-[18.75rem] flex flex-col items-center justify-center gap-6 bg-yellow-500 py-6 mt-6">
+      <p
+        data-aos="zoom-out"
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl"
+      >
+        Let's Talk
+      </p>
       <div className="flex gap-6">
         <FooterButtons
           icon={<BiLogoTelegram size={25} />}
           text="Telegram"
           action="https://t.me/Didheemose"
+          aos={{ style: "fade-up", duration: 1000 }}
         />
         <FooterButtons
           icon={<IoLogoWhatsapp size={25} />}
           text="WhatsApp"
           action="https://wa.me/7736903623"
+          aos={{ style: "fade-up", duration: 1200 }}
         />
         <FooterButtons
           icon={<BiLogoInstagramAlt size={25} />}
           text="Instagram"
           action="https://www.instagram.com/_didhee_/"
+          aos={{ style: "fade-up", duration: 1400 }}
         />
       </div>
     </footer>

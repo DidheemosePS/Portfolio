@@ -53,6 +53,7 @@ export default function HandleContactPage() {
 
   return (
     <form
+      data-aos="zoom-in"
       onSubmit={handleContactSubmit}
       ref={formRef as React.RefObject<HTMLFormElement>}
       className="grid grid-cols-1 grid-rows-[2.5rem,2.5rem,8rem,auto] gap-6"

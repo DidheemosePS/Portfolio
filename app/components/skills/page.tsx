@@ -106,11 +106,11 @@ export default function Skills() {
         <h3 className=" text-2xl font-black text-gray-400">My Skills</h3>
         <span className="h-[1.1px] right-0 absolute w-[90%] bg-gray-300 block"></span>
       </div>
-      <p className="text-[1rem] font-medium text-gray-600">
+      <p data-aos="fade-up" className="text-[1rem] font-medium text-gray-600">
         Here are my skills
       </p>
       <div className="grid grid-rows-[auto,1fr] grid-cols-1 px-2 py-5 sm:px-4 md:px-8 lg:grid lg:grid-rows-1 lg:grid-cols-2 xl:px-16">
-        <div className=" flex flex-col gap-7 lg:self-center">
+        <div data-aos="zoom-in" className=" flex flex-col gap-7 lg:self-center">
           {dataOne?.map((value, index) => {
             return (
               <div key={index}>
@@ -135,6 +135,7 @@ export default function Skills() {
           {dataTwo?.map((value, index) => {
             return (
               <div
+                data-aos="zoom-in"
                 key={index}
                 className={`${
                   index % 2 === 0 ? styleForEven.style1 : styleForOdd.style1
