@@ -37,7 +37,7 @@ const styleForEven = {
 };
 
 interface DataOne {
-  icon: ReactElement;
+  icon: ReactElement<{ size: number }>;
   skill: string;
   range: number;
 }
@@ -50,17 +50,17 @@ interface DataTwo {
 export default function Skills() {
   const dataOne: DataOne[] = [
     {
-      icon: <AiFillHtml5 />,
+      icon: <AiFillHtml5 size={30} />,
       skill: "HTML",
       range: 90,
     },
     {
-      icon: <BiSolidFileCss />,
+      icon: <BiSolidFileCss size={30} />,
       skill: "CSS",
       range: 85,
     },
     {
-      icon: <BiLogoTailwindCss />,
+      icon: <BiLogoTailwindCss size={30} />,
       skill: "Tailwind CSS",
       range: 80,
     },
