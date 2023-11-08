@@ -22,7 +22,7 @@ interface Style {
 
 const styleForOdd: Style = {
   style1:
-    "w-[6.5rem] h-[6.5rem] bg-black rounded-lg shadow-lg flex flex-col justify-center items-center gap-2 p-4 hover:transition hover:duration-300 hover:ease-in-out hover:scale-110 sm:w-[8.5rem] sm:h-[8.5rem] md:w-[9.5rem] md:h-[9.5rem] lg:w-[9rem] lg:h-[9rem] xl:w-[10.5rem] xl:h-[10.5rem]",
+    "w-[6.5rem] h-[6.5rem] bg-black rounded-lg shadow-lg flex flex-col justify-center items-center gap-2 p-4 sm:w-[8.5rem] sm:h-[8.5rem] md:w-[9.5rem] md:h-[9.5rem] lg:w-[9rem] lg:h-[9rem] xl:w-[10.5rem] xl:h-[10.5rem]",
   style2:
     "w-[2.5rem] h-[2.5rem] bg-white rounded-full flex justify-center items-center text-black sm:w-[3rem] sm:h-[3rem] md:w-[3.5rem] md:h-[3.5rem]",
   style3: "font-medium text-white",
@@ -30,7 +30,7 @@ const styleForOdd: Style = {
 
 const styleForEven = {
   style1:
-    "w-[6.5rem] h-[6.5rem] bg-white rounded-lg shadow-lg flex flex-col justify-center items-center gap-2 p-4 hover:transition hover:duration-300 hover:ease-in-out hover:scale-110 sm:w-[8.5rem] sm:h-[8.5rem] md:w-[9.5rem] md:h-[9.5rem] lg:w-[9rem] lg:h-[9rem] xl:w-[10.5rem] xl:h-[10.5rem]",
+    "w-[6.5rem] h-[6.5rem] bg-white rounded-lg shadow-lg flex flex-col justify-center items-center gap-2 p-4 sm:w-[8.5rem] sm:h-[8.5rem] md:w-[9.5rem] md:h-[9.5rem] lg:w-[9rem] lg:h-[9rem] xl:w-[10.5rem] xl:h-[10.5rem]",
   style2:
     "w-[2.5rem] h-[2.5rem] bg-black rounded-full flex justify-center items-center text-white sm:w-[3rem] sm:h-[3rem] md:w-[3.5rem] md:h-[3.5rem]",
   style3: "font-medium text-black",
@@ -135,11 +135,11 @@ export default function Skills() {
           {dataTwo?.map((value, index) => {
             return (
               <div
-                data-aos="zoom-in"
                 key={index}
                 className={`${
                   index % 2 === 0 ? styleForEven.style1 : styleForOdd.style1
                 }`}
+                data-aos="zoom-in"
               >
                 <div
                   className={`${

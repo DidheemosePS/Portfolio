@@ -65,13 +65,13 @@ export default function Home() {
         <div data-aos="fade-up" className="flex gap-5">
           <HomeButtons
             text="HireMe"
-            style="border rounded-lg border-black bg-black text-white font-bold px-6 py-2 hover:text-yellow-500 lg:px-10"
+            style="border rounded-lg border-black bg-black text-white font-bold px-6 py-2 transition duration-300 ease-in-out hover:text-yellow-500 lg:px-10"
             action="https://www.linkedin.com/in/didheemose/"
           />
           <HomeButtons
             text="Resume"
             icon={<AiOutlineDownload size={17} />}
-            style="border rounded-lg border-white bg-yellow-500 text-black font-bold px-5 py-2 flex justify-center items-center gap-1 hover:text-white lg:px-8"
+            style="border rounded-lg border-white bg-yellow-500 text-black font-bold px-5 py-2 flex justify-center items-center gap-1 transition duration-300 ease-in-out hover:text-white lg:px-8"
             action="Didheemose_Resume.pdf"
           />
         </div>
@@ -82,22 +82,27 @@ export default function Home() {
         >
           <HomeButtons
             icon={<BsGithub size={25} />}
+            style="transition duration-300 ease-in-out hover:scale-125"
             action="https://github.com/DidheemosePS"
           />
           <HomeButtons
             icon={<BsLinkedin size={25} />}
+            style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.linkedin.com/in/didheemose/"
           />
           <HomeButtons
             icon={<BsInstagram size={25} />}
+            style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.instagram.com/_didhee_/"
           />
           <HomeButtons
             icon={<BsFacebook size={25} />}
+            style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.facebook.com/Didheemose"
           />
           <HomeButtons
             icon={<FaXTwitter size={25} />}
+            style="transition duration-300 ease-in-out hover:scale-125"
             action="https://twitter.com/didheemose"
           />
         </div>

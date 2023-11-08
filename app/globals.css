@@ -21,11 +21,5 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
-  scrollbar-color: white;
-}
-
-::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
+  width: 0rem;
 }

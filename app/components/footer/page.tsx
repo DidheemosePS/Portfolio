@@ -13,19 +13,34 @@ export default function Footer() {
       </p>
       <div className="flex gap-6">
         <FooterButtons
-          icon={<BiLogoTelegram size={25} />}
+          icon={
+            <BiLogoTelegram
+              size={30}
+              className="transition duration-300 ease-in-out hover:scale-125"
+            />
+          }
           text="Telegram"
           action="https://t.me/Didheemose"
           aos={{ style: "fade-up", duration: 1000 }}
         />
         <FooterButtons
-          icon={<IoLogoWhatsapp size={25} />}
+          icon={
+            <IoLogoWhatsapp
+              size={30}
+              className="transition duration-300 ease-in-out hover:scale-125"
+            />
+          }
           text="WhatsApp"
           action="https://wa.me/7736903623"
           aos={{ style: "fade-up", duration: 1200 }}
         />
         <FooterButtons
-          icon={<BiLogoInstagramAlt size={25} />}
+          icon={
+            <BiLogoInstagramAlt
+              size={30}
+              className="transition duration-300 ease-in-out hover:scale-125"
+            />
+          }
           text="Instagram"
           action="https://www.instagram.com/_didhee_/"
           aos={{ style: "fade-up", duration: 1400 }}
