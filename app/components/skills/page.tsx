@@ -7,6 +7,7 @@ import {
   BiLogoMongodb,
   BiLogoReact,
   BiLogoTailwindCss,
+  BiLogoTypescript,
   BiSolidFileCss,
 } from "react-icons/bi";
 import { FaAws, FaNode } from "react-icons/fa6";
@@ -70,14 +71,14 @@ export default function Skills() {
       range: 85,
     },
     {
+      icon: <BiLogoTypescript size={30} />,
+      skill: "TypeScript",
+      range: 70,
+    },
+    {
       icon: <FaNode size={30} />,
       skill: "Node JS",
       range: 60,
-    },
-    {
-      icon: <TbApi size={30} />,
-      skill: "Rest Api",
-      range: 70,
     },
   ];
 

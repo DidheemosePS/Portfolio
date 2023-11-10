@@ -27,7 +27,7 @@ const data: Data[] = [
     code: "https://github.com/DidheemosePS/_PlantIn_.git",
   },
   {
-    image: "/portfolio.jpg",
+    image: "/portfolio.png",
     projectName: "Portfolio (Next JS)",
     description:
       "Explore my portfolio—a showcase of my passion and expertise. From design to development, each project tells a unique story. Join me on this journey of creativity and innovation!",
@@ -61,7 +61,7 @@ export default function Works() {
                 height={100}
                 quality={100}
                 priority={true}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
               />
               <p className="text-lg font-medium text-gray-800 pb-5">
                 {value?.projectName}
