@@ -1,3 +1,5 @@
+"use client";
+
 import { BiLogoInstagramAlt, BiLogoTelegram } from "react-icons/bi";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FooterButtons } from "../spare/buttons";

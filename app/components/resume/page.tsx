@@ -1,3 +1,5 @@
+"use client";
+
 import LineComponent from "@/components/spare/lineComponent";
 
 const experienceData = [

@@ -1,3 +1,5 @@
+"use client";
+
 import HandleContactPage from "@/components/spare/handleContactPage";
 import { FaArrowUpLong } from "react-icons/fa6";
 

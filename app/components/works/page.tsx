@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { AiOutlineLink } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
