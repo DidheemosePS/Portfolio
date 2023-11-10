@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";

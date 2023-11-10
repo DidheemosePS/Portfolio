@@ -1,11 +1,5 @@
-import { Metadata } from "next";
 import HandleContactPage from "@/components/spare/handleContactPage";
 import { FaArrowUpLong } from "react-icons/fa6";
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact",
-};
 
 export default function Contact() {
   return (

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Metadata } from "next";
 import { AiOutlineLink } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
 import { WorksButtons } from "../spare/buttons";
@@ -11,11 +10,6 @@ interface Data {
   demo: string;
   code: string;
 }
-
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Services",
-};
 
 const data: Data[] = [
   {

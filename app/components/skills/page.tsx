@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactElement } from "react";
 import { AiFillHtml5 } from "react-icons/ai";
 import {
@@ -11,7 +9,6 @@ import {
   BiSolidFileCss,
 } from "react-icons/bi";
 import { FaAws, FaNode } from "react-icons/fa6";
-import { TbApi } from "react-icons/tb";
 import { SiNextdotjs } from "react-icons/si";
 import { motion } from "framer-motion";
 

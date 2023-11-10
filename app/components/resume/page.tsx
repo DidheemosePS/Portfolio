@@ -1,10 +1,4 @@
-import { Metadata } from "next";
 import LineComponent from "@/components/spare/lineComponent";
-
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Services",
-};
 
 const experienceData = [
   {
