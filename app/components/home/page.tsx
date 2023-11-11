@@ -33,7 +33,7 @@ export default function Home() {
       facebookLink: "/",
       xLink: "/",
     },
-    image: "Didheee.gif",
+    image: "didhee.gif",
   };
 
   return (

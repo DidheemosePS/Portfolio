@@ -14,7 +14,7 @@ const experienceData = [
 
 const educationData = [
   {
-    qualification: "Batchelor of computer applications",
+    qualification: "Bachelor of Computer Applications",
     collegeName: "Naipunnya Institute",
     fromTo: "June 2020 - March 2023",
     description:
