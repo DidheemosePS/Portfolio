@@ -60,25 +60,31 @@ export default function HandleContactPage() {
     >
       <input
         type="text"
+        name="name"
         placeholder="Your Name"
         onChange={handleChange("authorName")}
         required
         disabled={isLoading}
+        autoComplete="off"
         className="border rounded-lg drop-shadow-lg px-2 placeholder:text-sm font-medium focus:outline-none focus:border-yellow-500"
       />
       <input
         type="email"
+        name="email"
         placeholder="Your Email"
         onChange={handleChange("email")}
         required
         disabled={isLoading}
+        autoComplete="off"
         className="border rounded-lg drop-shadow-lg px-2 placeholder:text-sm font-medium focus:outline-none focus:border-yellow-500"
       />
       <textarea
+        name="message"
         placeholder="Your Message"
         onChange={handleChange("message")}
         required
         disabled={isLoading}
+        autoComplete="off"
         className="border rounded-lg drop-shadow-xl p-2 resize-none placeholder:text-sm font-medium focus:outline-none focus:border-yellow-500"
       />
       <button

@@ -81,26 +81,31 @@ export default function Home() {
           className="flex gap-6 mt-10"
         >
           <HomeButtons
+            label="Github"
             icon={<BsGithub size={25} />}
             style="transition duration-300 ease-in-out hover:scale-125"
             action="https://github.com/DidheemosePS"
           />
           <HomeButtons
+            label="LinkedIn"
             icon={<BsLinkedin size={25} />}
             style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.linkedin.com/in/didheemose/"
           />
           <HomeButtons
+            label="Instagram"
             icon={<BsInstagram size={25} />}
             style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.instagram.com/_didhee_/"
           />
           <HomeButtons
+            label="Facebook"
             icon={<BsFacebook size={25} />}
             style="transition duration-300 ease-in-out hover:scale-125"
             action="https://www.facebook.com/Didheemose"
           />
           <HomeButtons
+            label="Twitter"
             icon={<FaXTwitter size={25} />}
             style="transition duration-300 ease-in-out hover:scale-125"
             action="https://twitter.com/didheemose"

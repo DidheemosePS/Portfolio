@@ -4,11 +4,13 @@ import { ReactElement } from "react";
 
 export function HomeButtons({
   text,
+  label,
   icon,
   style,
   action,
 }: {
   text?: string;
+  label?: string;
   icon?: ReactElement;
   style?: string;
   action: string;
@@ -18,7 +20,7 @@ export function HomeButtons({
   };
 
   return (
-    <button onClick={handleOnSubmit} className={style}>
+    <button onClick={handleOnSubmit} className={style} aria-label={label}>
       {text}
       {icon}
     </button>
