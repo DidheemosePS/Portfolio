@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
@@ -120,9 +119,9 @@ export default function Home() {
       </div>
       <video
         autoPlay
-        loop
-        muted
         playsInline
+        muted
+        loop
         data-aos="fade-up"
         className="w-full h-full"
       >
