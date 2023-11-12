@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
@@ -18,10 +19,7 @@ export default function Home() {
       facebookLink: string;
       xLink: string;
     };
-    image: {
-      imageMP4: string;
-      imageWEBM: string;
-    };
+    image: string;
   }
 
   const data: Data = {
@@ -35,10 +33,7 @@ export default function Home() {
       facebookLink: "/",
       xLink: "/",
     },
-    image: {
-      imageMP4: "didhee.mp4",
-      imageWEBM: "didhee.webm",
-    },
+    image: "didhee.webp",
   };
 
   return (
@@ -117,17 +112,16 @@ export default function Home() {
           />
         </div>
       </div>
-      <video
-        autoPlay
-        playsInline
-        muted
-        loop
+      <Image
+        src={data?.image}
+        alt="Image"
+        width={100}
+        height={100}
+        quality={100}
+        priority={true}
         data-aos="fade-up"
-        className="w-full h-full"
-      >
-        <source src={data?.image?.imageMP4} type="video/mp4" />
-        <source src={data?.image?.imageWEBM} type="video/webm" />
-      </video>
+        className="w-full h-full object-contain"
+      />
     </div>
   );
 }

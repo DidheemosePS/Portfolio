@@ -15,7 +15,7 @@ interface Data {
 
 const data: Data[] = [
   {
-    image: "/plantIn.png",
+    image: "/plantIn.webp",
     projectName: "PlantIn (MERN Stack)",
     description:
       "PlantIn is a platform that mainly focuses on branding people’s work and their innovative ideas.Any finished work that represents the users talent can be published for the world to see.",
@@ -23,7 +23,7 @@ const data: Data[] = [
     code: "https://github.com/DidheemosePS/_PlantIn_.git",
   },
   {
-    image: "/portfolio.png",
+    image: "/portfolio.webp",
     projectName: "Portfolio (Next JS)",
     description:
       "Explore my portfolio—a showcase of my passion and expertise. From design to development, each project tells a unique story. Join me on this journey of creativity and innovation!",
@@ -57,7 +57,7 @@ export default function Works() {
                 height={100}
                 quality={100}
                 priority={true}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover shadow-md"
               />
               <p className="text-lg font-medium text-gray-800 pb-5">
                 {value?.projectName}
