@@ -48,7 +48,7 @@ export default function Works() {
             <div
               data-aos="zoom-in"
               key={index}
-              className="w-fit h-[20rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
+              className="w-fit h-[22rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
             >
               <Image
                 src={value?.image}
@@ -57,7 +57,7 @@ export default function Works() {
                 height={100}
                 quality={100}
                 priority={true}
-                className="w-full h-full object-fill"
+                className="w-full h-full object-cover"
               />
               <p className="text-lg font-medium text-gray-800 pb-5">
                 {value?.projectName}

@@ -19,7 +19,10 @@ export default function Home() {
       facebookLink: string;
       xLink: string;
     };
-    image: string;
+    image: {
+      imageMP4: string;
+      imageWEBM: string;
+    };
   }
 
   const data: Data = {
@@ -33,7 +36,10 @@ export default function Home() {
       facebookLink: "/",
       xLink: "/",
     },
-    image: "didhee.gif",
+    image: {
+      imageMP4: "didhee.mp4",
+      imageWEBM: "didhee.webm",
+    },
   };
 
   return (
@@ -112,16 +118,17 @@ export default function Home() {
           />
         </div>
       </div>
-      <Image
-        src={data?.image}
-        alt="Image"
-        width={100}
-        height={100}
-        quality={100}
-        priority={true}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         data-aos="fade-up"
-        className="w-full h-full object-contain"
-      />
+        className="w-full h-full"
+      >
+        <source src={data?.image?.imageMP4} type="video/mp4" />
+        <source src={data?.image?.imageWEBM} type="video/webm" />
+      </video>
     </div>
   );
 }

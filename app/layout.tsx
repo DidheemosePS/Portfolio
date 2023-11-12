@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import SonnerProvider from "./sonner-provider";
 import Aos from "./aos";
+import CustomScript from "../public/customScript";
 
 export const metadata: Metadata = {
   title: "Didheemose",
@@ -16,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <CustomScript />
+      </head>
       <body>
         <Aos>
           <SonnerProvider>{children}</SonnerProvider>
