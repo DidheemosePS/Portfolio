@@ -48,7 +48,7 @@ export default function Works() {
             <div
               data-aos="zoom-in"
               key={index}
-              className="w-fit h-[22rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
+              className="w-fit h-[20rem] flex flex-col justify-center items-center gap-5 shadow-md rounded-lg overflow-hidden relative group/works sm:w-[15rem] md:w-[18rem] lg:w-[25rem]"
             >
               <Image
                 src={value?.image}
@@ -57,7 +57,7 @@ export default function Works() {
                 height={100}
                 quality={100}
                 priority={true}
-                className="w-full h-full object-cover shadow-md"
+                className="w-full h-full object-contain shadow-md"
               />
               <p className="text-lg font-medium text-gray-800 pb-5">
                 {value?.projectName}
@@ -66,7 +66,12 @@ export default function Works() {
                 key={index}
                 className="w-full h-full flex flex-col justify-center items-center gap-5 absolute top-0 left-0 p-5 rounded-lg translate-y-full transition duration-500 ease-in-out group-hover/works:translate-y-0 bg-white bg-opacity-[80%]"
               >
-                <p className="text-lg font-medium">{value?.description}</p>
+                <p
+                  className="text-lg font-medium overflow-y-scroll"
+                  style={{ scrollbarWidth: "none" }}
+                >
+                  {value?.description}
+                </p>
                 <div className="flex gap-2 md:gap-5">
                   <WorksButtons
                     icon={<AiOutlineLink size={20} />}

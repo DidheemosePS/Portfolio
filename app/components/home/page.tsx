@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { HomeButtons } from "../spare/buttons";
 import { TypeAnimation } from "react-type-animation";
+import Svg from "../spare/svg";
 
 export default function Home() {
   interface Data {
@@ -112,16 +112,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <Image
-        src={data?.image}
-        alt="Image"
-        width={100}
-        height={100}
-        quality={100}
-        priority={true}
-        data-aos="fade-up"
-        className="w-full h-full object-contain"
-      />
+      <Svg />
     </div>
   );
 }
