@@ -48,14 +48,16 @@ export default function Home() {
         >
           Hello, I'm {data?.name}
         </p>
-        <TypeAnimation
+        <p
           data-aos="fade-up"
-          sequence={[`${data?.role}`, 3000, ""]}
-          speed={30}
-          wrapper="p"
-          repeat={Infinity}
           className="text-3xl font-bold text-yellow-500 leading-normal lg:text-4xl"
-        />
+        >
+          <TypeAnimation
+            sequence={[`${data?.role}`, 3000, ""]}
+            speed={30}
+            repeat={Infinity}
+          />
+        </p>
         <p
           data-aos="fade-up"
           className="text-[1rem] font-medium text-gray-600 mb-5 lg:text-[1.2rem]"
