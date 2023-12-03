@@ -7,7 +7,7 @@ export default function Svg() {
       data-aos="fade-up"
       data-aos-offset="0"
     >
-      <image width="100%" height="100%" href="sample.webp"></image>
+      <image width="100%" height="100%" href="didhee.webp"></image>
       <image
         className="circle-spin"
         width="20%"
