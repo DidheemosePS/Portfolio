@@ -1,34 +1,18 @@
 export default function Svg() {
   return (
-    <svg id="sw-js-blob-svg" viewBox="0 0 100 100" data-aos="fade-up">
-      <mask id="mask1" mask-type="alpha">
-        <path
-          fill="rgb(234, 179, 8)"
-          d="M22.9,-38.4C29.3,-35.9,34,-29.1,37.2,-22C40.4,-14.9,42.1,-7.4,42.4,0.2C42.7,7.7,41.4,15.5,37.8,21.8C34.1,28.1,28,33,21.3,36.5C14.6,40,7.3,42.2,0.5,41.4C-6.4,40.6,-12.7,36.8,-19.1,33.1C-25.4,29.3,-31.7,25.7,-36.9,20.2C-42,14.7,-46,7.3,-46.3,-0.2C-46.7,-7.7,-43.4,-15.5,-39.1,-22.3C-34.7,-29.2,-29.2,-35.2,-22.5,-37.6C-15.8,-40,-7.9,-38.9,0.1,-39.1C8.2,-39.4,16.4,-41,22.9,-38.4Z"
-          width="100%"
-          height="100%"
-          transform="translate(50 50)"
-          strokeWidth="0"
-          style={{ transition: "all 0.3s ease 0s" }}
-        ></path>
-      </mask>
-      <g mask="url(#mask1)">
-        <path
-          fill="rgb(234, 179, 8)"
-          d="M22.9,-38.4C29.3,-35.9,34,-29.1,37.2,-22C40.4,-14.9,42.1,-7.4,42.4,0.2C42.7,7.7,41.4,15.5,37.8,21.8C34.1,28.1,28,33,21.3,36.5C14.6,40,7.3,42.2,0.5,41.4C-6.4,40.6,-12.7,36.8,-19.1,33.1C-25.4,29.3,-31.7,25.7,-36.9,20.2C-42,14.7,-46,7.3,-46.3,-0.2C-46.7,-7.7,-43.4,-15.5,-39.1,-22.3C-34.7,-29.2,-29.2,-35.2,-22.5,-37.6C-15.8,-40,-7.9,-38.9,0.1,-39.1C8.2,-39.4,16.4,-41,22.9,-38.4Z"
-          width="100%"
-          height="100%"
-          transform="translate(50 50)"
-          strokeWidth="0"
-          style={{ transition: "all 0.3s ease 0s" }}
-        ></path>
-        <image width="80" x="10" y="12" href="didhee.webp"></image>
-      </g>
+    <svg
+      viewBox="0 0 100 100"
+      width="100%"
+      height="100%"
+      data-aos="fade-up"
+      data-aos-offset="0"
+    >
+      <image width="100%" height="100%" href="sample.webp"></image>
       <image
         className="circle-spin"
-        width="20"
-        x="67"
-        y="72"
+        width="20%"
+        x="70"
+        y="74"
         href="circle.webp"
       ></image>
     </svg>

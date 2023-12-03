@@ -44,12 +44,14 @@ export default function Home() {
       <div className="row-start-2 row-end-3 py-8 flex flex-col gap-1 lg:row-start-1 lg:row-end-2">
         <p
           data-aos="fade-up"
+          data-aos-offset="0"
           className="text-3xl font-bold leading-normal lg:text-4xl xl:text-5xl"
         >
           Hello, I'm {data?.name}
         </p>
         <p
           data-aos="fade-up"
+          data-aos-offset="0"
           className="text-3xl font-bold text-yellow-500 leading-normal lg:text-4xl"
         >
           <TypeAnimation

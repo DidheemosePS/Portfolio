@@ -21,6 +21,8 @@ export default function Navigation() {
     <nav className="m-auto min-w-full h-[5rem] flex justify-between items-center px-8 sticky top-0 z-20 bg-white shadow-md">
       <Link
         data-aos="fade-down"
+        data-aos-offset="0"
+        data-aos-once="true"
         href="#home"
         onClick={() => handleOnClick("#home")}
         className={`${
@@ -31,6 +33,8 @@ export default function Navigation() {
       </Link>
       <div
         data-aos="fade-down"
+        data-aos-offset="0"
+        data-aos-once="true"
         className="hidden lg:font-bold lg:text-xl lg:flex lg:gap-12"
       >
         <Link
