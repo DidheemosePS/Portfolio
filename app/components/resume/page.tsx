@@ -18,7 +18,14 @@ const educationData = [
     collegeName: "Naipunnya Institute",
     fromTo: "June 2020 - March 2023",
     description:
-      "As a recent BCA graduate and aspiring web developer with a focus on React JS, I offer advanced problem-solving, efficient time management, and a passion for continual learning. Actively seeking entry-level opportunities in web development, I bring a blend of technical prowess and creative ingenuity. Eager to contribute and make a discernible impact in the dynamic realm of web development.",
+      "Aspiring Frontend Web Developer specializing in React.js and Next.js. Eager to apply my knowledge and passion for creating intuitive and visually stunning user interfaces. Seeking a collaborative team where I can contribute, learn, and grow in the dynamic realm of web development.",
+  },
+  {
+    qualification: "Master of Science in Cloud Computing",
+    collegeName: "National College of Ireland",
+    fromTo: "January 2024 - Present",
+    description:
+      "Currently studying cloud computing, eager to gain expertise in designing scalable solutions and contributing to innovative cloud architectures.",
   },
 ];
 
@@ -35,7 +42,7 @@ export default function Resume() {
       <div className="flex flex-wrap justify-center items-center gap-10 px-2 py-5 sm:px-4 md:px-8 lg:gap-14 xl:gap-16 xl:px-16 2xl:gap-20">
         <div
           data-aos="zoom-in"
-          className="flex flex-col justify-center items-center gap-5"
+          className="flex flex-col justify-center items-center gap-5 self-start"
         >
           <div className="border-2 border-gray-300 rounded-full text-yellow-500 px-7 py-1 justify-self-center text-xl font-medium">
             Experience

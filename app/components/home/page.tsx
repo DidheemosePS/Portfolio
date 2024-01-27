@@ -10,7 +10,10 @@ import Svg from "../spare/svg";
 export default function Home() {
   interface Data {
     name: string;
-    role: string;
+    role: {
+      roleOne: string;
+      roleTwo: string;
+    };
     description: string;
     link: {
       gitHubLink: string;
@@ -24,8 +27,11 @@ export default function Home() {
 
   const data: Data = {
     name: "Didheemose",
-    role: "Web Developer",
-    description: "I'm an undergraduate student at Calicut University.",
+    role: {
+      roleOne: "Web Developer",
+      roleTwo: "Cloud Computing",
+    },
+    description: "I'm a postgraduate student at National College of Ireland.",
     link: {
       gitHubLink: "/",
       linkedinLink: "/",
@@ -55,7 +61,14 @@ export default function Home() {
           className="text-3xl font-bold text-yellow-500 leading-normal lg:text-4xl"
         >
           <TypeAnimation
-            sequence={[`${data?.role}`, 3000, ""]}
+            sequence={[
+              `${data?.role?.roleOne}`,
+              3000,
+              "",
+              `${data?.role?.roleTwo}`,
+              3000,
+              "",
+            ]}
             speed={30}
             repeat={Infinity}
           />
