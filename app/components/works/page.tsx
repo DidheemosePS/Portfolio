@@ -15,12 +15,36 @@ interface Data {
 
 const data: Data[] = [
   {
-    image: "/plantIn.webp",
-    projectName: "PlantIn (MERN Stack)",
+    image: "/lottery.webp",
+    projectName: "Lottery (Blockchain)",
     description:
-      "PlantIn is a platform that mainly focuses on branding people’s work and their innovative ideas.Any finished work that represents the users talent can be published for the world to see.",
-    demo: "https://plantin.plantinapp.me/",
-    code: "https://github.com/DidheemosePS/_PlantIn_.git",
+      "Designed and developed a decentralized application (DApp) utilizing blockchain technology, integrating Web3 technologies to enable decentralized interactions and transactions. Implemented core blockchain concepts, such as smart contracts, to ensure secure and transparent lottery operations. Utilized blockchain frameworks like Ethereum for backend infrastructure development and developed smart contracts using Solidity.",
+    demo: "https://lottery-didheemose.vercel.app/",
+    code: "https://github.com/DidheemosePS/lottery.git",
+  },
+  {
+    image: "/library.webp",
+    projectName: "Django Email Package (Package)",
+    description:
+      "Developed a custom email package for the Django framework, featuring pre-designed HTML templates for various email scenarios and integrated dynamic content placeholders for personalized messages, thereby enhancing the email communication capabilities of Django applications.",
+    demo: "https://pypi.org/project/django-email-package/",
+    code: "https://github.com/DidheemosePS/django_email_package",
+  },
+  {
+    image: "/take_care.webp",
+    projectName: "Pet Adoption Platform (Django)",
+    description:
+      "Implemented a user-friendly pet adoption platform with Django, utilizing AWS services for deployment and scaling. Ensured application security and integrity using Pylint and Sonar Cloud, delivering a scalable and secure platform for managing pet adoption processes.",
+    demo: "https://github.com/DidheemosePS/take_care_django",
+    code: "https://github.com/DidheemosePS/take_care_django",
+  },
+  {
+    image: "/kick_off.webp",
+    projectName: "Event Management System (Django)",
+    description:
+      "Developed a cloud-based event management application, implementing user authentication and event management features. Integrated AWS services for enhanced performance and reliability, and streamlined event management processes with automated CI/CD pipelines.",
+    demo: "https://github.com/DidheemosePS/Kick_Off_Django",
+    code: "https://github.com/DidheemosePS/Kick_Off_Django",
   },
   {
     image: "/portfolio.webp",
@@ -29,6 +53,14 @@ const data: Data[] = [
       "Explore my portfolio—a showcase of my passion and expertise. From design to development, each project tells a unique story. Join me on this journey of creativity and innovation!",
     demo: "https://didheemose.vercel.app/",
     code: "https://github.com/DidheemosePS/Portfolio.git",
+  },
+  {
+    image: "/plantIn.webp",
+    projectName: "PlantIn (MERN Stack)",
+    description:
+      "PlantIn is a platform that mainly focuses on branding people’s work and their innovative ideas.Any finished work that represents the users talent can be published for the world to see.",
+    demo: "https://plantin-didheemose.vercel.app/",
+    code: "https://github.com/DidheemosePS/PlantIn",
   },
 ];
 

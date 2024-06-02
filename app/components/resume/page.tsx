@@ -14,18 +14,18 @@ const experienceData = [
 
 const educationData = [
   {
-    qualification: "Bachelor of Computer Applications",
-    collegeName: "Naipunnya Institute",
-    fromTo: "June 2020 - March 2023",
-    description:
-      "Aspiring Frontend Web Developer specializing in React.js and Next.js. Eager to apply my knowledge and passion for creating intuitive and visually stunning user interfaces. Seeking a collaborative team where I can contribute, learn, and grow in the dynamic realm of web development.",
-  },
-  {
     qualification: "Master of Science in Cloud Computing",
     collegeName: "National College of Ireland",
     fromTo: "January 2024 - Present",
     description:
       "Currently studying cloud computing, eager to gain expertise in designing scalable solutions and contributing to innovative cloud architectures.",
+  },
+  {
+    qualification: "Bachelor of Computer Applications",
+    collegeName: "Naipunnya Institute",
+    fromTo: "June 2020 - March 2023",
+    description:
+      "Aspiring Frontend Web Developer specializing in React.js and Next.js. Eager to apply my knowledge and passion for creating intuitive and visually stunning user interfaces. Seeking a collaborative team where I can contribute, learn, and grow in the dynamic realm of web development.",
   },
 ];
 
