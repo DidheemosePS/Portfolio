@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import SonnerProvider from "./sonner-provider";
 import Aos from "./aos";
@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.PORTFOLIO_URL as string),
+  manifest: "manifest.json",
   title: "Didheemose",
   description:
     "Explore my portfolio—a showcase of my passion and expertise. From design to development, each project tells a unique story. Join me on this journey of creativity and innovation!",
@@ -26,6 +27,10 @@ export const metadata: Metadata = {
     "Didheemose contact",
     "Didheemose P S contact",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
